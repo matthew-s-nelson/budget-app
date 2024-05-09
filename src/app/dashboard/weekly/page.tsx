@@ -1,3 +1,10 @@
+import Table from '@/app/ui/dashboard/table';
+
 export default function Page() {
-    return <p>Weekly Screen</p>
+    return (
+        <div>
+            <p>Weekly Screen</p>
+            <Table />
+        </div>
+    )
 }
