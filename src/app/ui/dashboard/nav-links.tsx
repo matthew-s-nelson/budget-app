@@ -10,6 +10,7 @@ const links = [
     { name: 'Weekly', href: '/dashboard/weekly'},
     { name: 'Monthly', href: '/dashboard/monthly'},
     { name: 'Yearly', href: '/dashboard/yearly'},
+    { name: 'Caclulate Your Budget', href: '/dashboard/calculate_budget'},
 ]
 
 export default function NavLinks() {
