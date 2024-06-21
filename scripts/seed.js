@@ -1,8 +1,8 @@
 require('dotenv/config');
 const { db } = require('@vercel/postgres');
 const {
-    weekly_costs,
     users,
+    weekly_costs,
 } = require('../src/app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
@@ -25,7 +25,7 @@ async function seedUsers(client) {
             users.map(async (user) => {
                 const hashedPassword = await bcrypt.hash(user.password, 10);
                 return client.sql`
-                    INSERT INTO user (id, name, email, password)
+                    INSERT INTO users (id, name, email, password)
                     VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
                     ON CONFLICT (id) DO NOTHING;
                 `;
@@ -65,7 +65,7 @@ async function seedWeeklyCosts(client) {
         const insertedWeeklyCosts = await Promise.all(
             weekly_costs.map(
                 (invoice) => client.sql`
-                INSERT INTO invoices (groceries, rent, gas, entertainment, date)
+                INSERT INTO weekly_costs (groceries, rent, gas, entertainment, date)
                 VALUES (${weekly_costs.groceries}, ${weekly_costs.rent}, ${weekly_costs.gas}, ${weekly_costs.entertainment}, ${weekly_costs.date})
                 ON CONFLICT (id) DO NOTHING;
             `,
@@ -83,3 +83,19 @@ async function seedWeeklyCosts(client) {
         throw error;
     }
 }
+
+async function main() {
+    const client = await db.connect();
+  
+    await seedUsers(client);
+    await seedWeeklyCosts(client);
+  
+    await client.end();
+}
+  
+main().catch((err) => {
+    console.error(
+        'An error occurred while attempting to seed the database:',
+        err,
+    );
+});

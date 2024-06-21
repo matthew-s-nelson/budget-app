@@ -1,16 +1,18 @@
 'use client';
 
 import { useState } from 'react';
-import NWSTable from '@/app/ui/needs-wants-savings';
+import NWSTable from '@/app/ui/budget-calculator/needs-wants-savings';
+import ExpenseForm from '@/app/ui/budget-calculator/add-expense';
 
 export default function Page() {
     const [monthlyIncome, setMonthlyIncome] = useState(0);
     const [yearlyIncome, setYearlyIncome] = useState(0);
     const [weeklyIncome, setWeeklyIncome] = useState(0);
-    const [expenses, setExpenses] = useState(new Map());
-    const [expenseDescription, setExpenseDescription] = useState('');
-    const [expenseAmount, setExpenseAmount] = useState(0);
+    const [expenses, setExpenses] = useState([]);
     const [totalExepenses, setTotalExpenses] = useState(0);
+    const [needsExpenses, setNeedsExpenses] = useState(0);
+    const [wantsExpenses, setWantsExpenses] = useState(0);
+    const [savingsExpenses, setSavingsExpenses] = useState(0);
 
     const handleChangeMonthlyIncome = (event) => {
         setMonthlyIncome(event.target.value);
@@ -18,26 +20,23 @@ export default function Page() {
         setWeeklyIncome(event.target.value * 3 / 13);
     };
 
-    const handleAddExpense = (event) => {
-        if (expenseDescription && expenseAmount != 0) {
-            const newMap = new Map(expenses);
-            newMap.set(expenseDescription, expenseAmount);
-            setExpenses(newMap);
-            handleChangeTotalExpenses(expenseAmount);
-            setExpenseAmount(0);
-            setExpenseDescription('');
-        } else {
-            alert('Please include both an expense description and amount.');
+    const handleAddExpense = (newExpense) => {
+        setExpenses(prevExpenses => [...expenses, newExpense]);
+
+        switch(newExpense.type) {
+            case "Needs":
+                setNeedsExpenses(needsExpenses + newExpense.amount);
+                break;
+            case "Wants":
+                setWantsExpenses(wantsExpenses + newExpense.amount);
+                break;
+            case "Savings":
+                setSavingsExpenses(savingsExpenses + newExpense.amount);
+                break;
         }
+
+        handleChangeTotalExpenses(newExpense.amount);
     }
-
-    const handleChangeExpenseDescription = (event) => {
-        setExpenseDescription(event.target.value);
-    };
-
-    const handleChangeExpenseAmount = (event) => {
-        setExpenseAmount(Number(event.target.value));
-    };
 
     const handleChangeTotalExpenses = (expense) => {
         setTotalExpenses(totalExepenses + expense);
@@ -45,7 +44,7 @@ export default function Page() {
 
     return (
         <div>
-            <h1>A recommended budget is often 50% towards needs, 30% towards wants, and 20% towards savings and paying off debts.</h1>
+            <h1>A recommended budget is often 50% towards needs, 30% towards wants, and 20% towards savings and paying off debts. However, this should be adjusted according to individual circumstances.</h1>
             <h1 className="m-3">Caclulate your budget</h1>
             <form>
                 <div className="my-5">
@@ -58,18 +57,16 @@ export default function Page() {
                 </div>
                 <div className='my-5'>
                     <label htmlFor='expense_description' className="m-2">Add a fixed monthly expense</label>
-                    <input type="text" name="expense_description" className="m-2 rounded" onChange={handleChangeExpenseDescription} placeholder="Expense Description"/>
-                    <input type="number" name="expense_amount" className="m-2 rounded" onChange={handleChangeExpenseAmount} placeholder="$ Amount"/>
-                    <button type='button' onClick={handleAddExpense}>Add Expense</button>
+                    <ExpenseForm onAddExpense={handleAddExpense} />
                 </div>
                 <div className='my-5'>
                     <h3>Fixed Expenses</h3>
                     <ul>
-                        {[...expenses].map(([description, amount]) => (
-                            <li key={description}>
-                                <strong>{description}:</strong> {amount}
+                        {expenses.map((expense) => {
+                            <li key={expense.description}>
+                                <strong>{expense.description}:</strong> {expense.amount}
                             </li>
-                        ))}
+                        })}
                     </ul>
                 </div>
                 <div className='my-5'>
@@ -81,8 +78,8 @@ export default function Page() {
                     <NWSTable needs={(monthlyIncome * 0.5).toFixed(2)} wants={(monthlyIncome * 0.3).toFixed(2)} savings={(monthlyIncome * 0.2).toFixed(2)} />
                 </div>
                 <div className='my-5'>
-                    <h3>Your budget breakdown:</h3>
-                    <NWSTable needs={totalExepenses} wants={0} savings={0} />
+                    <h3>Your monthly budget breakdown:</h3>
+                    <NWSTable needs={needsExpenses} wants={wantsExpenses} savings={savingsExpenses} />
                 </div>
             </form>
         </div>
