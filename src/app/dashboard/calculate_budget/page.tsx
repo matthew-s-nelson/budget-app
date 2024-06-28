@@ -43,9 +43,11 @@ export default function Page() {
     }
 
     return (
-        <div>
-            <h1>A recommended budget is often 50% towards needs, 30% towards wants, and 20% towards savings and paying off debts. However, this should be adjusted according to individual circumstances.</h1>
-            <h1 className="m-3">Caclulate your budget</h1>
+        <div className='container mx-auto p-4'>
+            <h1 className="m-3">Caclulate Your Budget</h1>
+            <p><b>A recommended budget is often 50% towards needs, 30% towards wants,
+                and 20% towards savings and paying off debts. However, this can be adjusted 
+                after careful consideration according to individual circumstances.</b></p>
             <form>
                 <div className="my-5">
                     <label htmlFor='monthly_income' className="m-2">Monthly Income</label>
@@ -56,7 +58,12 @@ export default function Page() {
                     <h3>Weekly income: ${weeklyIncome.toFixed(2)}</h3>
                 </div>
                 <div className='my-5'>
-                    <label htmlFor='expense_description' className="m-2">Add a fixed monthly expense</label>
+                    <h3>Recommended Monthly Budget:</h3>
+                    <NWSTable needs={(monthlyIncome * 0.5).toFixed(2)} wants={(monthlyIncome * 0.3).toFixed(2)} savings={(monthlyIncome * 0.2).toFixed(2)} />
+                </div>
+                <div className='my-5'>
+                    <label htmlFor='expense_description' className="m-2">Add a fixed monthly expense
+                    (recurring payments such as subscriptions, rent, automatic deposits, etc.)</label>
                     <ExpenseForm onAddExpense={handleAddExpense} />
                 </div>
                 <div className='my-5'>
@@ -74,12 +81,9 @@ export default function Page() {
                     <h3>Left Over Monthly Income: ${monthlyIncome - totalExepenses}</h3>
                 </div>
                 <div className='my-5'>
-                    <h3>Recommended Monthly Budget:</h3>
-                    <NWSTable needs={(monthlyIncome * 0.5).toFixed(2)} wants={(monthlyIncome * 0.3).toFixed(2)} savings={(monthlyIncome * 0.2).toFixed(2)} />
-                </div>
-                <div className='my-5'>
                     <h3>Your monthly budget breakdown:</h3>
                     <NWSTable needs={needsExpenses} wants={wantsExpenses} savings={savingsExpenses} />
+                    <h3>Percent breakdown</h3>
                 </div>
             </form>
         </div>
