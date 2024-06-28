@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import NWSTable from '@/app/ui/budget-calculator/needs-wants-savings';
 import ExpenseForm from '@/app/ui/budget-calculator/add-expense';
+import {formatNumWithCommas} from '@/app/utils/formatting'
 
 export default function Page() {
     const [monthlyIncome, setMonthlyIncome] = useState(0);
@@ -54,8 +55,8 @@ export default function Page() {
                     <input type="number" name="monthly_income" className="rounded" onChange={handleChangeMonthlyIncome}></input>
                 </div>
                 <div className='my-5'>
-                    <h3>Yearly income: ${yearlyIncome}</h3>
-                    <h3>Weekly income: ${weeklyIncome.toFixed(2)}</h3>
+                    <h3>Yearly income: ${formatNumWithCommas(yearlyIncome)}</h3>
+                    <h3>Weekly income: ${(weeklyIncome.toFixed(2))}</h3>
                 </div>
                 <div className='my-5'>
                     <h3>Recommended Monthly Budget:</h3>
@@ -71,14 +72,14 @@ export default function Page() {
                     <ul>
                         {expenses.map((expense) => {
                             <li key={expense.description}>
-                                <strong>{expense.description}:</strong> {expense.amount}
+                                <strong>{expense.description}:</strong> {formatNumWithCommas(expense.amount)}
                             </li>
                         })}
                     </ul>
                 </div>
                 <div className='my-5'>
-                    <h3>Total Fixed Monthl Expenses: ${totalExepenses}</h3>
-                    <h3>Left Over Monthly Income: ${monthlyIncome - totalExepenses}</h3>
+                    <h3>Total Fixed Monthl Expenses: ${formatNumWithCommas(totalExepenses)}</h3>
+                    <h3>Left Over Monthly Income: ${formatNumWithCommas(monthlyIncome - totalExepenses)}</h3>
                 </div>
                 <div className='my-5'>
                     <h3>Your monthly budget breakdown:</h3>
