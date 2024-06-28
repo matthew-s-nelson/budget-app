@@ -70,11 +70,11 @@ export default function Page() {
                 <div className='my-5'>
                     <h3>Fixed Expenses</h3>
                     <ul>
-                        {expenses.map((expense) => {
+                        {expenses.map((expense) => (
                             <li key={expense.description}>
                                 <strong>{expense.description}:</strong> {formatNumWithCommas(expense.amount)}
                             </li>
-                        })}
+                        ))}
                     </ul>
                 </div>
                 <div className='my-5'>
@@ -84,7 +84,6 @@ export default function Page() {
                 <div className='my-5'>
                     <h3>Your monthly budget breakdown:</h3>
                     <NWSTable needs={needsExpenses} wants={wantsExpenses} savings={savingsExpenses} />
-                    <h3>Percent breakdown</h3>
                 </div>
             </form>
         </div>
