@@ -31,3 +31,19 @@ body {
     text-wrap: balance;
   }
 }
+
+h1 {
+  @apply text-3xl font-bold mb-4;
+}
+
+table {
+  @apply w-full text-center border-collapse;
+}
+
+th {
+  @apply bg-gray-200 border-b border-gray-300 p-2 text-sm font-semibold;
+}
+
+td {
+  @apply border-b border-gray-300 p-2 text-sm;
+}
