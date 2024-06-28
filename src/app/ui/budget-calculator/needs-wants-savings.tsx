@@ -1,3 +1,5 @@
+import {formatNumWithCommas} from '@/app/utils/formatting'
+
 export default function NWSTable( { needs, wants, savings }) {
     const total = needs + wants + savings;
     let needsPercentage = 50;
@@ -19,9 +21,9 @@ export default function NWSTable( { needs, wants, savings }) {
             </thead>
             <tbody>
                 <tr>
-                    <td className="p-3">${needs}</td>
-                    <td className="p-3">${wants}</td>
-                    <td className="p-3">${savings}</td>
+                    <td className="p-3">${formatNumWithCommas(needs)}</td>
+                    <td className="p-3">${formatNumWithCommas(wants)}</td>
+                    <td className="p-3">${formatNumWithCommas(savings)}</td>
                 </tr>
             </tbody>
         </table>
