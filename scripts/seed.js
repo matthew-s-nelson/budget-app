@@ -61,34 +61,74 @@ async function seedWeeklyCosts(client) {
 
         console.log(`Created "weekly_costs" table`);
 
-        // Insert data into the "weekly_costs" table
-        const insertedWeeklyCosts = await Promise.all(
-            weekly_costs.map(
-                (invoice) => client.sql`
-                INSERT INTO weekly_costs (groceries, rent, gas, entertainment, date)
-                VALUES (${weekly_costs.groceries}, ${weekly_costs.rent}, ${weekly_costs.gas}, ${weekly_costs.entertainment}, ${weekly_costs.date})
-                ON CONFLICT (id) DO NOTHING;
-            `,
-            ),
-        );
 
-        console.log(`Seeded ${insertedWeeklyCosts.length} weekly_costs`);
-
-        return {
-            createTable,
-            weekly_costs: insertedWeeklyCosts,
-        }
+        return createTable;
     } catch (error) {
         console.error('Error seeding invoices:', error);
         throw error;
     }
 }
 
+async function seedExpenses(client) {
+    try {
+        // Ensure uuid-ossp extension is available
+        await client.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
+
+        // Create the ENUM type
+        const createEnum = `CREATE TYPE public.expense_type AS ENUM ('expense', 'income');`;
+        // await client.query(createEnum);
+
+        // Create the "expenses" table if it doesn't exist
+        const createTable = await client.query(`
+            CREATE TABLE IF NOT EXISTS public.expenses (
+                id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                category_id INT NOT NULL,
+                description VARCHAR(255) NOT NULL,
+                amount FLOAT NOT NULL,
+                type public.expense_type NOT NULL,
+                date DATE NOT NULL
+            );
+        `);
+
+        console.log('Created "expenses" table');
+
+        return createTable;
+    } catch (error) {
+        console.error('Error seeding expenses:', error);
+        throw error;
+    }
+}
+
+async function seedCategories(client) {
+    try {
+        // Ensure uuid-ossp extension is available
+        await client.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
+
+        // Create the "expenses" table if it doesn't exist
+        const createTable = await client.query(`
+            CREATE TABLE IF NOT EXISTS public.categories (
+                id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                name VARCHAR(255) NOT NULL
+            );
+        `);
+
+        console.log('Created "categories" table');
+
+        return createTable;
+    } catch (error) {
+        console.error('Error seeding expenses:', error);
+        throw error;
+    }
+}
+
+
 async function main() {
     const client = await db.connect();
   
     await seedUsers(client);
     await seedWeeklyCosts(client);
+    await seedExpenses(client);
+    await seedCategories(client);
   
     await client.end();
 }
