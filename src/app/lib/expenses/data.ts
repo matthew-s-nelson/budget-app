@@ -38,16 +38,16 @@ export async function createExpense(data) {
     revalidatePath('/dashboard/expenses'); // Updates the page with the added category
 }
 
-// export async function fetchCategories() {
-//     try {
-//         const data = await sql<Category>`SELECT * FROM categories;`
-//         console.log(data.rows);
-//         return data.rows;
-//     } catch (error) {
-//         console.error('Database Error:', error);
-//         throw new Error('Failed to fetch the categories.');
-//     }
-// }
+export async function fetchExpenses() {
+    try {
+        const data = await sql<Expense>`SELECT * FROM expenses;`
+        console.log(data.rows);
+        return data.rows;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch the expenses.');
+    }
+}
 
 // export async function deleteCategory(id: string) {
 //     await sql`
