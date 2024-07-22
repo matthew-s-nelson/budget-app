@@ -19,6 +19,7 @@ export async function uploadExpenses(data) {
     data.forEach(element => {
         createExpense(element);
     });
+    revalidatePath('/dashboard/expenses'); // Updates the page with the added expenses
 }
 
 export async function createExpense(data) {
@@ -34,14 +35,11 @@ export async function createExpense(data) {
     INSERT INTO expenses (category_id, description, amount, type, date)
     VALUES (${category_id}, ${description}, ${amount}, ${type}, ${date})
     `;
-
-    revalidatePath('/dashboard/expenses'); // Updates the page with the added category
 }
 
 export async function fetchExpenses() {
     try {
         const data = await sql<Expense>`SELECT * FROM expenses;`
-        console.log(data.rows);
         return data.rows;
     } catch (error) {
         console.error('Database Error:', error);
