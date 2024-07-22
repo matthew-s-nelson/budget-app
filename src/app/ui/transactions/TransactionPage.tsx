@@ -3,7 +3,7 @@
 import { useState } from "react";
 import AddTransaction from "@/app/ui/transactions/AddTransaction";
 import TransactionList from "@/app/ui/transactions/TransactionList";
-import { fetchCategories } from "@/app/lib/categories/data";
+import { uploadExpenses } from "@/app/lib/expenses/data";
 
 export default function TransactionPage({ categories }) {
     const [expenses, setExpenses] = useState([]);
@@ -19,7 +19,7 @@ export default function TransactionPage({ categories }) {
     const addExpense = () => {
         if (!description.trim() || !amount.trim()) return; // Trim removes whitespace from beginning and end of a string
         const newExpense = { id: expenses.length + 1,
-          description, amount: parseFloat(amount), type, date };
+          description, amount: parseFloat(amount), category, type, date };
         setExpenses([...expenses, newExpense]);
         setBalance(type === 'expense' ?
             balance - parseFloat(amount) : balance + parseFloat(amount));
@@ -54,20 +54,21 @@ export default function TransactionPage({ categories }) {
             return;
         }
         try {
-            const response = await fetch('/api/expenses', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(expenses),
-            });
-            if (response.ok) {
-                // Handle success
-                console.log('Expenses submitted successfully');
-            } else {
-                // Handle error
-                console.error('Failed to submit expenses');
-            }
+            uploadExpenses(expenses);
+            // const response = await fetch('/api/expenses', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(expenses),
+            // });
+            // if (response.ok) {
+            //     // Handle success
+            //     console.log('Expenses submitted successfully');
+            // } else {
+            //     // Handle error
+            //     console.error('Failed to submit expenses');
+            // }
         } catch (error) {
             console.error('An error occurred while submitting expenses:', error);
         }
@@ -99,6 +100,7 @@ export default function TransactionPage({ categories }) {
           <TransactionList 
           expenses={expenses}
           removeExpense={removeExpense}
+          categories={categories}
           />
           <div className="text-center mt-6">
                 <button

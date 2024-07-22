@@ -82,7 +82,7 @@ async function seedExpenses(client) {
         const createTable = await client.query(`
             CREATE TABLE IF NOT EXISTS public.expenses (
                 id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-                category_id INT NOT NULL,
+                category_id VARCHAR(255) NOT NULL,
                 description VARCHAR(255) NOT NULL,
                 amount FLOAT NOT NULL,
                 type public.expense_type NOT NULL,

@@ -74,7 +74,7 @@ const AddTransaction = ({
                 </div>
             </div>
             <div className="mt-3">
-                <select className="form-select w-full">
+                <select className="form-select w-full" onChange={e => setCategory(e.target.value)}>
                     <option value="">Select an option</option>
                     {categories.map(option => (
                         <option key={option.id} value={option.id}>{option.name}</option>
