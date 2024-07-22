@@ -15,7 +15,10 @@ const AddTransaction = ({
     setTotalIncome,
     totalExpense,
     setTotalExpense,
-    addExpense
+    addExpense,
+    category,
+    setCategory,
+    categories
 }) => {
     return (
         <div className="mx-auto text-center md:w-1/2">
@@ -69,6 +72,14 @@ const AddTransaction = ({
                         <option value="income">Income</option>
                     </select>
                 </div>
+            </div>
+            <div className="mt-3">
+                <select className="form-select w-full">
+                    <option value="">Select an option</option>
+                    {categories.map(option => (
+                        <option key={option.id} value={option.id}>{option.name}</option>
+                    ))}
+                </select>
             </div>
             <div className="mt-3">
                 <button
