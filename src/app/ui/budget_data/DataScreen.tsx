@@ -12,10 +12,24 @@ export default function DataScreen({ transactions }) {
 
     return (
         <div>
-            <p>Total income: ${formatNumWithCommas(income)}</p>
-            <p>Total expenses: ${formatNumWithCommas(expenses)}</p>
-            <p>Net: ${formatNumWithCommas(net)}</p>
-            <SearchByCategory expenses={expenses} />
+            <table>
+                <thead>
+                    <tr>
+                        <th>Income Total</th>
+                        <th>Expenses Total</th>
+                        <th>Net</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>${formatNumWithCommas(income)}</td>
+                        <td>${formatNumWithCommas(expenses)}</td>
+                        <td>${formatNumWithCommas(net)}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br></br>
+            <SearchByCategory expenses={transactions} />
         </div>
     )
 }

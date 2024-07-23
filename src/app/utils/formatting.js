@@ -5,3 +5,7 @@ export function formatNumWithCommas(number) {
 export function twoDecimalPlaces(number) {
     return number.toFixed(2);
 }
+
+export function dateToString(date) {
+    return new Date(date).toLocaleDateString();
+}
