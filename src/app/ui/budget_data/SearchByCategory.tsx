@@ -1,7 +1,8 @@
 'use client'
 import { useEffect, useState } from "react";
 import { fetchCategories } from "@/app/lib/categories/data";
-import { dateToString } from "@/app/utils/formatting";
+import { dateToString, formatNumWithCommas } from "@/app/utils/formatting";
+import { sum } from "@/app/utils/calculations/calculations";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -9,6 +10,7 @@ export default function SearchByCategory({ expenses }) {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [expensesToShow, setExpensesToShow] = useState(expenses);
+    const [totalToShow, setTotalToShow] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
@@ -30,6 +32,7 @@ export default function SearchByCategory({ expenses }) {
             : expenses.filter(expense => expense.category_id === selectedCategory);
         
         setExpensesToShow(filteredExpenses.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE));
+        setTotalToShow(sum(filteredExpenses));
     }, [selectedCategory, currentPage, expenses]);
 
     function changeCategory(event) {
@@ -67,10 +70,16 @@ export default function SearchByCategory({ expenses }) {
                             <td>{expense.description}</td>
                             {selectedCategory == 'all' && (<td>{expense.category}</td>)}
                             <td>{dateToString(expense.date)}</td>
-                            <td>{expense.amount}</td>
+                            <td>${formatNumWithCommas(expense.amount)}</td>
                         </tr>
                     ))}
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan={selectedCategory == 'all' ? 3 : 2}><b>Total:</b></td>
+                        <td className={`${totalToShow <= 0 ? 'text-red-500' : 'text-green-500'}`}>${formatNumWithCommas(totalToShow)}</td>
+                    </tr>
+                </tfoot>
             </table>
             <div>
                 <button className="btn bg-blue-500 text-white py-1 px-3 mx-1 rounded" onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>Previous</button>

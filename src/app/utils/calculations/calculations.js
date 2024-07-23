@@ -1,7 +1,13 @@
-function sum(expenseRows, type) {
+export function sum(expenseRows, type = null) {
     let sum = 0;
     expenseRows.forEach(row => {
-        if (row.type == type) {
+        if (type == null) {
+            if (row.type == 'income') {
+                sum += row.amount;
+            } else {
+                sum -= row.amount;
+            }
+        } else if (row.type == type) {
             sum += row.amount;
         }
     });
