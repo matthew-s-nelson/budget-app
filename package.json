@@ -12,12 +12,15 @@
   "dependencies": {
     "@vercel/postgres": "^0.8.0",
     "bcrypt": "^5.1.1",
+    "chart.js": "^4.4.3",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "next": "14.2.2",
     "pg": "^8.11.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,4 +1,4 @@
 {
-  "/dashboard/calculate_budget/page": "app/dashboard/calculate_budget/page.js",
-  "/dashboard/weekly/page": "app/dashboard/weekly/page.js"
+  "/dashboard/weekly/page": "app/dashboard/weekly/page.js",
+  "/dashboard/yearly/page": "app/dashboard/yearly/page.js"
 }

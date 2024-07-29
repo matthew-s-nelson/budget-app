@@ -82,8 +82,11 @@ export default function Page() {
                     <h3>Left Over Monthly Income: ${formatNumWithCommas(monthlyIncome - totalExepenses)}</h3>
                 </div>
                 <div className='my-5'>
-                    <h3>Your monthly budget breakdown:</h3>
+                    <h3>Your monthly expense breakdown:</h3>
                     <NWSTable needs={needsExpenses} wants={wantsExpenses} savings={savingsExpenses} />
+                </div>
+                <div className='my-5'>
+                    <button type='submit'>Next</button>
                 </div>
             </form>
         </div>

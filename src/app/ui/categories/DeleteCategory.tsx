@@ -5,7 +5,7 @@ export async function DeleteCategory({ id }: { id: string }) {
 
     return (
         <form action={deleteCategoryWithId}>
-            <button type="submit">Delete</button>
+            <button type="submit" className="btn-danger">Delete</button>
         </form>
     )
 }

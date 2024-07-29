@@ -6,9 +6,8 @@ import { sum } from "@/app/utils/calculations/calculations";
 
 const ITEMS_PER_PAGE = 10;
 
-export default function SearchByCategory({ expenses }) {
+export default function SearchByCategory({ expenses, selectedCategory, setSelectedCategory }) {
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState('');
     const [expensesToShow, setExpensesToShow] = useState(expenses);
     const [totalToShow, setTotalToShow] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);

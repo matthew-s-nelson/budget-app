@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/dashboard/calculate_budget/page": [
+    "/dashboard/yearly/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/calculate_budget/page.js"
+      "static/chunks/app/dashboard/yearly/page.js"
     ],
     "/dashboard/layout": [
       "static/chunks/webpack.js",
@@ -16,25 +16,10 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/dashboard/yearly/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/yearly/page.js"
-    ],
-    "/dashboard/monthly/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/monthly/page.js"
-    ],
     "/dashboard/weekly/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/dashboard/weekly/page.js"
-    ],
-    "/dashboard/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/login/page.js"
     ]
   }
 }
