@@ -27,7 +27,6 @@ export async function createCategory(formData: FormData) {
 export async function fetchCategories() {
     try {
         const data = await sql<Category>`SELECT * FROM categories;`;
-        console.log(data.rows);
         return data.rows;
     } catch (error) {
         console.error('Database Error:', error);

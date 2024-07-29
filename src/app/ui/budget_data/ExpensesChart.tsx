@@ -11,7 +11,8 @@ const ExpensesChart = ({ expenses, periodType }) => {
 
     useEffect(() => {
         const groupByPeriod = (expenses) => {
-            const periods = {};
+            const expensePeriods = {};
+            const incomePeriods = {};
             expenses.forEach(expense => {
                 const expenseDate = new Date(expense.date);
                 
@@ -28,34 +29,46 @@ const ExpensesChart = ({ expenses, periodType }) => {
                     periodKey = startOfWeek.toISOString().split('T')[0];
                 }
 
-                if (!periods[periodKey]) {
-                    periods[periodKey] = 0;
+                if (!expensePeriods[periodKey]) {
+                    expensePeriods[periodKey] = 0;
+                }
+                if (!incomePeriods[periodKey]) {
+                    incomePeriods[periodKey] = 0;
                 }
                 if (expense.type === 'expense') {
-                    periods[periodKey] += expense.amount;
+                    expensePeriods[periodKey] += expense.amount;
+                } else if (expense.type === 'income') {
+                    incomePeriods[periodKey] += expense.amount;
                 }
             });
+            const labels = Array.from(new Set([...Object.keys(expensePeriods), ...Object.keys(incomePeriods)])).sort();
+            const expenseData = labels.map(label => expensePeriods[label]);
+            const incomeData = labels.map(label => incomePeriods[label]);
 
-            const labels = Object.keys(periods).sort();
-            const data = labels.map(label => periods[label]);
-
-            return { labels, data };
+            return { labels, expenseData, incomeData };
         };
 
         const processExpenses = async () => {
             try {
-                const { labels, data } = groupByPeriod(expenses);
+                const { labels, expenseData, incomeData } = groupByPeriod(expenses);
 
                 setExpenseData({
                     labels,
                     datasets: [
                         {
                             label: 'Expenses',
-                            data,
+                            data: expenseData,
+                            backgroundColor: 'rgba(255, 99, 192, 0.2)',
+                            borderColor: 'rgba(255, 99, 192, 1)',
+                            borderWidth: 1,
+                        },
+                        {
+                            label: 'Income',
+                            data: incomeData,
                             backgroundColor: 'rgba(75, 192, 192, 0.2)',
                             borderColor: 'rgba(75, 192, 192, 1)',
                             borderWidth: 1,
-                        },
+                        }
                     ],
                 });
             } catch (error) {

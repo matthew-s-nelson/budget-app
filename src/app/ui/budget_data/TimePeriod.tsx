@@ -16,7 +16,6 @@ export default function TimePeriod({ change, periods, periodType }) {
                 return `${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`;
             }
             case 'month': {
-                console.log("period" + period);
                 const startDate = new Date(period);
                 const endDate = new Date(startDate.getFullYear(), startDate.getMonth() + 1, 0);
                 return `${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`;

@@ -55,20 +55,6 @@ export default function TransactionPage({ categories }) {
         }
         try {
             uploadExpenses(expenses);
-            // const response = await fetch('/api/expenses', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(expenses),
-            // });
-            // if (response.ok) {
-            //     // Handle success
-            //     console.log('Expenses submitted successfully');
-            // } else {
-            //     // Handle error
-            //     console.error('Failed to submit expenses');
-            // }
         } catch (error) {
             console.error('An error occurred while submitting expenses:', error);
         }

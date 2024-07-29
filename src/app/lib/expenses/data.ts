@@ -47,6 +47,16 @@ export async function fetchExpenses() {
     }
 }
 
+export async function deleteExpense(id: string, path: string) {
+    // console.log(id);
+    // console.log(path)
+    await sql`
+        DELETE FROM expenses
+        WHERE id = ${id}
+    `;
+    revalidatePath(path);
+}
+
 // export async function deleteCategory(id: string) {
 //     await sql`
 //     DELETE FROM categories

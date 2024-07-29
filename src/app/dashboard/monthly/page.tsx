@@ -46,7 +46,6 @@ export default function Page() {
         const currentDate = new Date();
         for (let i = 0; i < 12; i++) {
             const month = new Date(currentDate.getFullYear(), currentDate.getMonth() - i, 1);
-            console.log(month.toISOString().split('T')[0]);
             months.push(month.toISOString());
         }
         return months;

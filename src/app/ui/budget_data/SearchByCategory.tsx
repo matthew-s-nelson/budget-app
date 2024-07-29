@@ -1,8 +1,10 @@
 'use client'
 import { useEffect, useState } from "react";
 import { fetchCategories } from "@/app/lib/categories/data";
+import { deleteExpense } from "@/app/lib/expenses/data";
 import { dateToString, formatNumWithCommas } from "@/app/utils/formatting";
 import { sum } from "@/app/utils/calculations/calculations";
+import { usePathname } from 'next/navigation'
 
 const ITEMS_PER_PAGE = 10;
 
@@ -11,6 +13,7 @@ export default function SearchByCategory({ expenses, selectedCategory, setSelect
     const [expensesToShow, setExpensesToShow] = useState(expenses);
     const [totalToShow, setTotalToShow] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
+    const path = usePathname();
 
     useEffect(() => {
         async function fetchData() {
@@ -41,6 +44,18 @@ export default function SearchByCategory({ expenses, selectedCategory, setSelect
 
     const totalPages = Math.ceil((selectedCategory === 'all' || selectedCategory === '' ? expenses.length : expensesToShow.length) / ITEMS_PER_PAGE);
 
+    const handleDeleteExpense = async (expenseToDelete) => {
+        const message = "Are you sure you want to delete this expense: " + expenseToDelete.description + "?"
+        if(confirm(message)) {
+            try {
+                await deleteExpense(expenseToDelete.id, path);
+                alert('Expense successfully deleted');
+            } catch {
+                console.error('Expense failed to delete');
+            }
+        }
+    };
+
     return (
         <div>
             <select name="category-select" onChange={e => changeCategory(e)}>
@@ -58,18 +73,18 @@ export default function SearchByCategory({ expenses, selectedCategory, setSelect
                 <thead>
                     <tr>
                         <th>Description</th>
-                        {selectedCategory == 'all' && <th>Category</th>}
                         <th>Date</th>
                         <th>Amount</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     {expensesToShow.map(expense => (
                         <tr key={expense.id} className={`${expense.type === 'expense' ? 'text-red-500' : 'text-green-500'}`}>
                             <td>{expense.description}</td>
-                            {selectedCategory == 'all' && (<td>{expense.category}</td>)}
                             <td>{dateToString(expense.date)}</td>
                             <td>${formatNumWithCommas(expense.amount)}</td>
+                            <td><button onClick={() => handleDeleteExpense(expense)} className="btn-danger">Delete</button></td>
                         </tr>
                     ))}
                 </tbody>
