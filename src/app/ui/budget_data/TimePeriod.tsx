@@ -1,4 +1,5 @@
 import React from "react";
+import { start } from "repl";
 
 export default function TimePeriod({ change, periods, periodType }) {
     const formatPeriod = (period) => {
@@ -12,6 +13,12 @@ export default function TimePeriod({ change, periods, periodType }) {
             case 'year': {
                 const startDate = new Date(period);
                 const endDate = new Date(startDate.getFullYear(), 11, 31);
+                return `${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`;
+            }
+            case 'month': {
+                console.log("period" + period);
+                const startDate = new Date(period);
+                const endDate = new Date(startDate.getFullYear(), startDate.getMonth() + 1, 0);
                 return `${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`;
             }
             default:

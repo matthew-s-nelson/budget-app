@@ -19,6 +19,9 @@ const ExpensesChart = ({ expenses, periodType }) => {
                 if (periodType === 'year') {
                     const startOfYear = new Date(expenseDate.getFullYear(), 0, 1);
                     periodKey = startOfYear.toISOString().split('T')[0];
+                } else if (periodType === 'month') {
+                    const startOfMonth = new Date(expenseDate.getFullYear(), expenseDate.getMonth(), 1);
+                    periodKey = startOfMonth.toISOString().split('T')[0];
                 } else if (periodType === 'week') {
                     const startOfWeek = new Date(expenseDate);
                     startOfWeek.setDate(expenseDate.getDate() - expenseDate.getDay());

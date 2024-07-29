@@ -46,7 +46,6 @@ export default function Page() {
         const currentDate = new Date();
         for (let i = 0; i < 52; i++) {
             const startOfYear = new Date(currentDate.getFullYear()-i, 0, 1);
-            console.log(startOfYear.toString());
             years.push(startOfYear.toString());
         }
         return years;

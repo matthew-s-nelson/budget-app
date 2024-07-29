@@ -1,4 +1,5 @@
 {
+  "/dashboard/yearly/page": "app/dashboard/yearly/page.js",
   "/dashboard/weekly/page": "app/dashboard/weekly/page.js",
-  "/dashboard/yearly/page": "app/dashboard/yearly/page.js"
+  "/dashboard/monthly/page": "app/dashboard/monthly/page.js"
 }

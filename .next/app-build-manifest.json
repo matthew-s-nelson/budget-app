@@ -20,6 +20,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/dashboard/weekly/page.js"
+    ],
+    "/dashboard/monthly/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/monthly/page.js"
     ]
   }
 }
