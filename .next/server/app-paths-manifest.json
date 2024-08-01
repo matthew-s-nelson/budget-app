@@ -1,8 +1,3 @@
 {
-  "/page": "app/page.js",
-  "/dashboard/monthly/page": "app/dashboard/monthly/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/dashboard/expense/page": "app/dashboard/expense/page.js",
-  "/dashboard/yearly/page": "app/dashboard/yearly/page.js",
-  "/dashboard/weekly/page": "app/dashboard/weekly/page.js"
+  "/auth/signin/page": "app/auth/signin/page.js"
 }

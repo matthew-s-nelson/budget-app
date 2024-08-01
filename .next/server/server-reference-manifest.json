@@ -1,110 +1,22 @@
 {
   "node": {
-    "1e365c2c17914c1a3e40b23077fdcd4f0bc2f9b6": {
+    "8f6554a178fa1dba311464d7b8f494cef689e587": {
       "workers": {
-        "app/dashboard/yearly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/weekly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/monthly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/expense/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%5D&__client_imported__=true!"
+        "app/auth/signin/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Factions%2Flogin.ts%22%2C%5B%22%24%24ACTION_0%22%2C%22login%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
-        "app/dashboard/yearly/page": "action-browser",
-        "app/dashboard/weekly/page": "action-browser",
-        "app/dashboard/monthly/page": "action-browser",
-        "app/dashboard/expense/page": "action-browser"
+        "app/auth/signin/page": "action-browser"
       }
     },
-    "7ef81fc500b8331621d98692ee114a3fe0044fdd": {
+    "bbf1387e32b871c276608799cd7d774c57db3b7c": {
       "workers": {
-        "app/dashboard/yearly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/weekly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/monthly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/expense/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%5D&__client_imported__=true!"
+        "app/auth/signin/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Factions%2Flogin.ts%22%2C%5B%22%24%24ACTION_0%22%2C%22login%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
-        "app/dashboard/yearly/page": "action-browser",
-        "app/dashboard/weekly/page": "action-browser",
-        "app/dashboard/monthly/page": "action-browser",
-        "app/dashboard/expense/page": "action-browser"
-      }
-    },
-    "dcd31d04d8ce970d1a9edf2a320ccba8123986f9": {
-      "workers": {
-        "app/dashboard/yearly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/weekly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/monthly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/expense/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/dashboard/yearly/page": "action-browser",
-        "app/dashboard/weekly/page": "action-browser",
-        "app/dashboard/monthly/page": "action-browser",
-        "app/dashboard/expense/page": "action-browser"
-      }
-    },
-    "1bd7f71487cba5267ee78f1ce989f28c8a551a69": {
-      "workers": {
-        "app/dashboard/yearly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/weekly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/monthly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/expense/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=!",
-        "app/dashboard/categories/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=!"
-      },
-      "layer": {
-        "app/dashboard/yearly/page": "action-browser",
-        "app/dashboard/weekly/page": "action-browser",
-        "app/dashboard/monthly/page": "action-browser",
-        "app/dashboard/expense/page": "rsc",
-        "app/dashboard/categories/page": "rsc"
-      }
-    },
-    "9949a93ec9b08d0c4c8e3fe0bb3bc49a1434bacc": {
-      "workers": {
-        "app/dashboard/yearly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/weekly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/monthly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/expense/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=!",
-        "app/dashboard/categories/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=!"
-      },
-      "layer": {
-        "app/dashboard/yearly/page": "action-browser",
-        "app/dashboard/weekly/page": "action-browser",
-        "app/dashboard/monthly/page": "action-browser",
-        "app/dashboard/expense/page": "rsc",
-        "app/dashboard/categories/page": "rsc"
-      }
-    },
-    "9ec5c96f7e3df72e8a9da6e73c4af9a0ed870e41": {
-      "workers": {
-        "app/dashboard/yearly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/weekly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/monthly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/expense/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=!",
-        "app/dashboard/categories/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=!"
-      },
-      "layer": {
-        "app/dashboard/yearly/page": "action-browser",
-        "app/dashboard/weekly/page": "action-browser",
-        "app/dashboard/monthly/page": "action-browser",
-        "app/dashboard/expense/page": "rsc",
-        "app/dashboard/categories/page": "rsc"
-      }
-    },
-    "750d781d73b38e248c197dd212b52154f8c49824": {
-      "workers": {
-        "app/dashboard/weekly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/expense/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/monthly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!",
-        "app/dashboard/yearly/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fexpenses%2Fdata.ts%22%2C%5B%22fetchExpenses%22%2C%22deleteExpense%22%2C%22uploadExpenses%22%2C%22createExpense%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Flib%2Fcategories%2Fdata.ts%22%2C%5B%22createCategory%22%2C%22fetchCategories%22%2C%22deleteCategory%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/dashboard/weekly/page": "action-browser",
-        "app/dashboard/expense/page": "action-browser",
-        "app/dashboard/monthly/page": "action-browser",
-        "app/dashboard/yearly/page": "action-browser"
+        "app/auth/signin/page": "action-browser"
       }
     }
   },
   "edge": {},
-  "encryptionKey": "xpamdz30AzeXMYg6Ml6o4DjIptlH+nFc8ie94QYk4+g="
+  "encryptionKey": "dsahtiGZ3qAAKUZ94rKpV3ZU4D0vEZuHB4mmNsLbUh8="
 }

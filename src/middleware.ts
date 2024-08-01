@@ -1,17 +1,12 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 
+// // Custom middleware logic
 export function middleware(request: NextRequest) {
-    const token = request.headers.get("Authorization");
-    // if (token === null) {
-    //     // Rreturn to login page
-    //     return NextResponse.redirect(new URL("/", request.url));
-    // }
-    // Allow them to proceed
+//     // You can add your middleware logic here, e.g., redirecting or logging
     return NextResponse.next();
 }
 
+// // Adjust the matcher to suit your needs
 // export const config = {
-//     matcher: [
-//         "/api/:path*"
-//     ]
-// }
+//     matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
+// };

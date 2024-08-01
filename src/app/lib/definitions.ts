@@ -11,3 +11,10 @@ export type Expense = {
     type: 'expense' | 'income';
     date: Date;
 }
+
+export type User = {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+}

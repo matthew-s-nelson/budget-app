@@ -121,6 +121,27 @@ async function seedCategories(client) {
     }
 }
 
+async function seedUsers(client) {
+    try {
+        await client.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
+
+        const createTable = await client.query(`
+            CREATE TABLE IF NOT EXISTS public.users (
+                id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                email TEXT NOT NULL UNIQUE,
+                password TEXT NOT NULL
+            );
+        `);
+
+        console.log('Created users table');
+        return createTable
+    } catch (error) {
+        console.error('Error creating users table:', error);
+        throw error;
+    }
+}
+
 
 async function main() {
     const client = await db.connect();
@@ -129,6 +150,7 @@ async function main() {
     await seedWeeklyCosts(client);
     await seedExpenses(client);
     await seedCategories(client);
+    await seedUsers(client);
   
     await client.end();
 }
