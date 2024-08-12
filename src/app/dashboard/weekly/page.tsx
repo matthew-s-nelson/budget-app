@@ -53,7 +53,7 @@ export default function Page() {
         return weeks;
     }
 
-    function changeWeek(event) {
+    function changeWeek(event: any) {
         setSelectedWeek(event.target.value);
     }
     

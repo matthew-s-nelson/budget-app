@@ -1,4 +1,4 @@
-import {formatNumWithCommas, twoDecimalPlaces} from '@/app/utils/formatting'
+import {formatNumWithCommas, twoDecimalPlaces} from '@/utils/formatting'
 
 export default function NWSTable( { needs, wants, savings }) {
     const total = needs + wants + savings;

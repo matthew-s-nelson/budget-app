@@ -1,7 +1,7 @@
 'use client'
-import { sumIncome, sumExpenses } from "@/app/utils/calculations/calculations";
+import { sumIncome, sumExpenses } from "@/utils/calculations/calculations";
 import React, {useEffect, useState } from "react";
-import { formatNumWithCommas } from "@/app/utils/formatting";
+import { formatNumWithCommas } from "@/utils/formatting";
 import SearchByCategory from "./SearchByCategory";
 import ExpensesChart from "./ExpensesChart";
 

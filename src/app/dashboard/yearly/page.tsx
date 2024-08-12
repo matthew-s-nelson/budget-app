@@ -51,7 +51,7 @@ export default function Page() {
         return years;
     }
 
-    function changeYear(event) {
+    function changeYear(event: any) {
         setSelectedYear(event.target.value);
     }
 

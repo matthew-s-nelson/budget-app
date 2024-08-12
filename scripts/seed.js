@@ -142,6 +142,26 @@ async function seedUsers(client) {
     }
 }
 
+async function seedSessions(client) {
+    try {
+        // Create the "expenses" table if it doesn't exist
+        const createTable = await client.query(`
+            CREATE TABLE IF NOT EXISTS public.sessions (
+                id text PRIMARY KEY,
+                user_id text,
+                created_at date
+            );
+        `);
+
+        console.log('Created "sessions" table');
+
+        return createTable;
+    } catch (error) {
+        console.error('Error seeding sessions:', error);
+        throw error;
+    }
+}
+
 
 async function main() {
     const client = await db.connect();
@@ -151,6 +171,7 @@ async function main() {
     await seedExpenses(client);
     await seedCategories(client);
     await seedUsers(client);
+    await seedSessions(client);
   
     await client.end();
 }

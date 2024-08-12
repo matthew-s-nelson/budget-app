@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import NWSTable from '@/app/ui/budget-calculator/needs-wants-savings';
 import ExpenseForm from '@/app/ui/budget-calculator/add-expense';
-import {formatNumWithCommas} from '@/app/utils/formatting'
+import {formatNumWithCommas} from '@/utils/formatting'
 
 export default function Page() {
     const [monthlyIncome, setMonthlyIncome] = useState(0);

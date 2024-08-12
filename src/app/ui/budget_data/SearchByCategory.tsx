@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import { fetchCategories } from "@/app/lib/categories/data";
 import { deleteExpense } from "@/app/lib/expenses/data";
-import { dateToString, formatNumWithCommas } from "@/app/utils/formatting";
-import { sum } from "@/app/utils/calculations/calculations";
+import { dateToString, formatNumWithCommas } from "@/utils/formatting";
+import { sum } from "@/utils/calculations/calculations";
 import { usePathname } from 'next/navigation'
 
 const ITEMS_PER_PAGE = 10;
