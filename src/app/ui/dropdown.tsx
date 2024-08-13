@@ -1,20 +1,23 @@
 import { useState } from 'react';
 
+interface DropdownWithInputProps {
+    options: any,
+    onAddExpense: any
+}
 
-
-const DropdownWithInput =  ({ options, onAddExpense }) => {
+const DropdownWithInput: React.FC<DropdownWithInputProps> =  ({ options, onAddExpense }) => {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [amount, setAmount] = useState('');
 
-    const handleCategoryChange = (event) => {
+    const handleCategoryChange = (event: any) => {
         setSelectedCategory(event.target.value);
     };
 
-    const handleAmountChange = (event) => {
+    const handleAmountChange = (event: any) => {
         setAmount(event.target.value);
     };
 
-    const handleAddExpense = (event) => {
+    const handleAddExpense = () => {
         if (selectedCategory && amount) {
             onAddExpense({ category: selectedCategory, amount: parseFloat(amount) });
             setSelectedCategory('');
@@ -30,7 +33,7 @@ const DropdownWithInput =  ({ options, onAddExpense }) => {
             <form onSubmit={handleAddExpense}>
             <select value={selectedCategory} onChange={handleCategoryChange} className='w-1/3 m-4 py-1'>
                 <option value="" disabled>Select Category</option>
-                {options.map((option, index) => (
+                {options.map((option: any, index: number) => (
                     <option key={index} value={option.value}>
                         {option.label}
                     </option>

@@ -1,7 +1,7 @@
 import { getUserByEmail, createUser } from '@/lib/data/users/data'; // A hypothetical service to get user data
 import { comparePasswords } from '@/utils/auth/passwords'; // A utility to compare passwords (e.g., bcrypt)
 import { cookies } from 'next/headers';
-import { uuid } from 'uuidv4';
+import { v4 } from 'uuid';
 import { NextRequest, NextResponse } from 'next/server';
 import { createSession, deleteSession, getSessionUserId } from './lib/data/session/data';
 
@@ -9,7 +9,7 @@ const secretKey = 'secret'; // Make a env variable
 const key = new TextEncoder().encode(secretKey);
 
 export function generateSessionId() {
-    return uuid();
+    return v4();
 }
 
 export async function registerUser(provider: string, formData: FormData) {
@@ -17,9 +17,9 @@ export async function registerUser(provider: string, formData: FormData) {
         throw new Error('Unsupported authentication provider');
     }
 
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const password = formData.get('password');
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
 
     if (!email || !name || !password) {
         throw { type: 'CredentialsRegister', message: 'Missing credentials' };
@@ -44,7 +44,7 @@ export async function registerUser(provider: string, formData: FormData) {
             }
         };
         
-    } catch (error) {
+    } catch (error: any) {
         console.log(error);
         if (error.type === 'CredentialsRegister') {
             throw error;
@@ -58,8 +58,8 @@ export async function signIn(provider: string, formData: FormData) {
         throw new Error('Unsupported authentication provider');
     }
 
-    const email = formData.get('email');
-    const password = formData.get('password');
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
 
     if (!email || !password) {
         throw { type: 'CredentialsSignIn', message: 'Missing credentials' };
@@ -89,7 +89,7 @@ export async function signIn(provider: string, formData: FormData) {
             }
         };
 
-    } catch (error) {
+    } catch (error: any) {
         // Handle any unexpected errors
         console.log(error);
         if (error.type === 'CredentialsSignIn') {

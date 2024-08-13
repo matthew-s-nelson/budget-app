@@ -8,7 +8,7 @@ export type Expense = {
     category_id: string;
     description: string;
     amount: number;
-    type: 'expense' | 'income';
+    type: string;
     date: Date;
 }
 

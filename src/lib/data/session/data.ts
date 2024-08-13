@@ -16,7 +16,7 @@ export async function createSession(sessionId: string, userId: string) {
     try {
         console.log('first');
         await deleteSessionByUserId(userId)
-        const createdAt = new Date();
+        const createdAt = new Date().toISOString();
         console.log('before');
         await sql`INSERT INTO sessions (id, user_id, created_at)
         VALUES (${sessionId}, ${userId}, ${createdAt})`;

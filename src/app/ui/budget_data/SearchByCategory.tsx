@@ -5,12 +5,19 @@ import { deleteExpense } from "@/lib/data/expenses/data";
 import { dateToString, formatNumWithCommas } from "@/utils/formatting";
 import { sum } from "@/utils/calculations/calculations";
 import { usePathname } from 'next/navigation'
+import { Expense, Category } from "@/lib/definitions";
 
 const ITEMS_PER_PAGE = 10;
 
-export default function SearchByCategory({ expenses, selectedCategory, setSelectedCategory }) {
-    const [categories, setCategories] = useState([]);
-    const [expensesToShow, setExpensesToShow] = useState(expenses);
+interface SearchByCategoryProps {
+    expenses: Expense[],
+    selectedCategory: Category | string,
+    setSelectedCategory: any
+}
+
+export default function SearchByCategory({ expenses, selectedCategory, setSelectedCategory }: SearchByCategoryProps) {
+    const [categories, setCategories] = useState<Category[]>([]);
+    const [expensesToShow, setExpensesToShow] = useState<Expense[]>(expenses);
     const [totalToShow, setTotalToShow] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const path = usePathname();
@@ -37,14 +44,14 @@ export default function SearchByCategory({ expenses, selectedCategory, setSelect
         setTotalToShow(sum(filteredExpenses));
     }, [selectedCategory, currentPage, expenses]);
 
-    function changeCategory(event) {
+    function changeCategory(event: any) {
         setSelectedCategory(event.target.value);
         setCurrentPage(1); // Reset to the first page when category changes
     }
 
     const totalPages = Math.ceil((selectedCategory === 'all' || selectedCategory === '' ? expenses.length : expensesToShow.length) / ITEMS_PER_PAGE);
 
-    const handleDeleteExpense = async (expenseToDelete) => {
+    const handleDeleteExpense = async (expenseToDelete: Expense) => {
         const message = "Are you sure you want to delete this expense: " + expenseToDelete.description + "?"
         if(confirm(message)) {
             try {

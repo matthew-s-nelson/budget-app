@@ -4,9 +4,14 @@ import { useState } from "react";
 import AddTransaction from "@/app/ui/transactions/AddTransaction";
 import TransactionList from "@/app/ui/transactions/TransactionList";
 import { uploadExpenses } from "@/lib/data/expenses/data";
+import { Category, Expense } from "@/lib/definitions";
 
-export default function TransactionPage({ categories }) {
-    const [expenses, setExpenses] = useState([]);
+interface TransactionPageProps {
+  categories: Category[]
+}
+
+export default function TransactionPage({ categories }: TransactionPageProps) {
+    const [expenses, setExpenses] = useState<any>([]);
     const [description, setDescription] = useState('');
     const [amount, setAmount] = useState('');
     const [type, setType] = useState('expense');
@@ -33,10 +38,10 @@ export default function TransactionPage({ categories }) {
         setDate(new Date().toLocaleDateString());
     };
 
-    const removeExpense = (id) => {
-        const expensesToRemove = expenses.find(expense => expense.id === id);
+    const removeExpense = (id: number) => {
+        const expensesToRemove = expenses.find((expense: any) => expense.id === id);
         if (expensesToRemove) {
-          setExpenses(expenses.filter(expense => expense.id !== id));
+          setExpenses(expenses.filter((expense: any) => expense.id !== id));
           setBalance(expensesToRemove.type === 'expense' ?
             balance + expensesToRemove.amount :
             balance - expensesToRemove.amount );

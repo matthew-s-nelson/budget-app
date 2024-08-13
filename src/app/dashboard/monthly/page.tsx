@@ -4,21 +4,24 @@ import { fetchExpenses } from "@/lib/data/expenses/data";
 import DataScreen from "@/app/ui/budget_data/DataScreen";
 import { useEffect, useState } from "react";
 import TimePeriod from "@/app/ui/budget_data/TimePeriod";
+import { Expense } from "@/lib/definitions";
 
 export const dynamic = 'force-dynamic';
 
 export default function Page() {
-    const [transactions, setTransactions] = useState([]);
-    const [expensesToShow, setExpensesToShow] = useState([]);
+    const [transactions, setTransactions] = useState<Expense[]>([]);
+    const [expensesToShow, setExpensesToShow] = useState<Expense[]>([]);
     const [selectedMonth, setSelectedMonth] = useState('');
-    const [months, setMonths] = useState([]);
+    const [months, setMonths] = useState<string[]>([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const data = await fetchExpenses();
-                setTransactions(data);
-                setMonths(generateMonths());
+                if (data) {
+                    setTransactions(data);
+                    setMonths(generateMonths());
+                }
             } catch (error) {
                 console.error('An error occurred while fetching expenses:', error);
             }

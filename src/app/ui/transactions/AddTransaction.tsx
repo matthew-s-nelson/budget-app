@@ -1,6 +1,27 @@
 import React from 'react';
 
-const AddTransaction = ({
+interface AddTransactionProps {
+    description: string,
+    setDescription: any,
+    amount: string,
+    setAmount: any,
+    date: any,
+    setDate: any,
+    type: string,
+    setType: any,
+    balance: number,
+    setBalance: any,
+    totalIncome: number,
+    setTotalIncome: any,
+    totalExpense: number,
+    setTotalExpense: any,
+    addExpense: any,
+    category: any,
+    setCategory: any,
+    categories: any
+}
+
+const AddTransaction: React.FC<AddTransactionProps> = ({
     description,
     setDescription,
     amount,
@@ -76,7 +97,7 @@ const AddTransaction = ({
             <div className="mt-3">
                 <select className="form-select w-full" onChange={e => setCategory(e.target.value)}>
                     <option value="">Select an option</option>
-                    {categories.map(option => (
+                    {categories.map((option: any) => (
                         <option key={option.id} value={option.id}>{option.name}</option>
                     ))}
                 </select>

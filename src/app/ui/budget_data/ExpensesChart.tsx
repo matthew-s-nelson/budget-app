@@ -3,16 +3,26 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { Expense } from '@/lib/definitions';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const ExpensesChart = ({ expenses, periodType }) => {
-    const [expenseData, setExpenseData] = useState({ labels: [], datasets: [] });
+interface ExpensesChartProps {
+    expenses: Expense[],
+    periodType: string
+}
+
+interface ExpensePeriods {
+    [key: string]: any;
+}
+
+const ExpensesChart: React.FC<ExpensesChartProps> = ({ expenses, periodType }) => {
+    const [expenseData, setExpenseData] = useState<any>({ labels: [], datasets: [] });
 
     useEffect(() => {
-        const groupByPeriod = (expenses) => {
-            const expensePeriods = {};
-            const incomePeriods = {};
+        const groupByPeriod = (expenses: Expense[]) => {
+            const expensePeriods: ExpensePeriods = {};
+            const incomePeriods: ExpensePeriods = {};
             expenses.forEach(expense => {
                 const expenseDate = new Date(expense.date);
                 
@@ -29,16 +39,18 @@ const ExpensesChart = ({ expenses, periodType }) => {
                     periodKey = startOfWeek.toISOString().split('T')[0];
                 }
 
-                if (!expensePeriods[periodKey]) {
-                    expensePeriods[periodKey] = 0;
-                }
-                if (!incomePeriods[periodKey]) {
-                    incomePeriods[periodKey] = 0;
-                }
-                if (expense.type === 'expense') {
-                    expensePeriods[periodKey] += expense.amount;
-                } else if (expense.type === 'income') {
-                    incomePeriods[periodKey] += expense.amount;
+                if (periodKey) {
+                    if (!expensePeriods[periodKey]) {
+                        expensePeriods[periodKey] = 0;
+                    }
+                    if (!incomePeriods[periodKey]) {
+                        incomePeriods[periodKey] = 0;
+                    }
+                    if (expense.type === 'expense') {
+                        expensePeriods[periodKey] += expense.amount;
+                    } else if (expense.type === 'income') {
+                        incomePeriods[periodKey] += expense.amount;
+                    }
                 }
             });
             const labels = Array.from(new Set([...Object.keys(expensePeriods), ...Object.keys(incomePeriods)])).sort();

@@ -1,8 +1,14 @@
 import React from "react";
 import { start } from "repl";
 
-export default function TimePeriod({ change, periods, periodType }) {
-    const formatPeriod = (period) => {
+interface TimePeriodProps {
+    change: any,
+    periods: any,
+    periodType: string
+}
+
+export default function TimePeriod({ change, periods, periodType }:TimePeriodProps) {
+    const formatPeriod = (period: any) => {
         switch (periodType) {
             case 'week': {
                 const startDate = new Date(period);
@@ -28,7 +34,7 @@ export default function TimePeriod({ change, periods, periodType }) {
     return (
         <select name="period-select" onChange={change}>
             <option value="">Select a {periodType}</option>
-            {periods.map((period, index) => (
+            {periods.map((period: any, index: number) => (
                 <option key={index} value={period}>
                     {formatPeriod(period)}
                 </option>

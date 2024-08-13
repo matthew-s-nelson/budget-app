@@ -16,14 +16,14 @@ const FormSchema = z.object({
 
 const CreateExpense = FormSchema;
 
-export async function uploadExpenses(data) {
-    data.forEach(element => {
+export async function uploadExpenses(data: any) {
+    data.forEach((element: any) => {
         createExpense(element);
     });
     revalidatePath('/dashboard/expenses'); // Updates the page with the added expenses
 }
 
-export async function createExpense(data) {
+export async function createExpense(data: any) {
     const { category_id, description, amount, type, date } = CreateExpense.parse({
         category_id: data.category,
         description: data.description,
@@ -38,7 +38,7 @@ export async function createExpense(data) {
 
         await sql`
         INSERT INTO expenses (user_id, category_id, description, amount, type, date)
-        VALUES (${userId}, ${category_id}, ${description}, ${amount}, ${type}, ${date})
+        VALUES (${userId}, ${category_id}, ${description}, ${amount}, ${type}, ${date.toISOString()})
         `;
     } catch (error) {
         console.error('Database error', error);

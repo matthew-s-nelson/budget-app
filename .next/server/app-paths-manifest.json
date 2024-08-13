@@ -1,7 +1,5 @@
 {
-  "/dashboard/page": "app/dashboard/page.js",
   "/dashboard/expense/page": "app/dashboard/expense/page.js",
   "/dashboard/categories/page": "app/dashboard/categories/page.js",
-  "/auth/signin/page": "app/auth/signin/page.js",
   "/dashboard/weekly/page": "app/dashboard/weekly/page.js"
 }

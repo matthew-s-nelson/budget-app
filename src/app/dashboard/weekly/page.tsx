@@ -4,13 +4,13 @@ import { fetchExpenses } from '@/lib/data/expenses/data';
 import { useState, useEffect } from 'react';
 import TimePeriod from '@/app/ui/budget_data/TimePeriod';
 import DataScreen from '@/app/ui/budget_data/DataScreen';
-import ExpensesChart from '@/app/ui/budget_data/ExpensesChart';
+import { Expense } from '@/lib/definitions';
 
 export default function Page() {
-    const [transactions, setTransactions] = useState([]);
-    const [expensesToShow, setExpensesToShow] = useState([]);
+    const [transactions, setTransactions] = useState<Expense[]>([]);
+    const [expensesToShow, setExpensesToShow] = useState<Expense[]>([]);
     const [selectedWeek, setSelectedWeek] = useState('');
-    const [weeks, setWeeks] = useState([]);
+    const [weeks, setWeeks] = useState<string[]>([]);
 
     useEffect(() => {
         async function fetchData() {

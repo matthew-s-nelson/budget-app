@@ -1,3 +1,5 @@
+'use server'
+
 import { fetchCategories, createCategory } from "@/lib/data/categories/data";
 import { DeleteCategory } from "@/app/ui/categories/DeleteCategory";
 

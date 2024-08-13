@@ -4,9 +4,16 @@ import React, {useEffect, useState } from "react";
 import { formatNumWithCommas } from "@/utils/formatting";
 import SearchByCategory from "./SearchByCategory";
 import ExpensesChart from "./ExpensesChart";
+import { Expense } from "@/lib/definitions";
+
+interface DataScreenProps {
+    periodType: string,
+    filteredTransactions: Expense[],
+    allTransactions: Expense[]
+}
 
 
-export default function DataScreen({ periodType, filteredTransactions, allTransactions }) {
+export default function DataScreen({ periodType, filteredTransactions, allTransactions }: DataScreenProps) {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [expensesToGraph, setExpenseToGraph] = useState(allTransactions);
     const income = sumIncome(filteredTransactions);

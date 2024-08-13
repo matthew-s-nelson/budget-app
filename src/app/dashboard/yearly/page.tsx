@@ -4,14 +4,15 @@ import { fetchExpenses } from "@/lib/data/expenses/data";
 import DataScreen from "@/app/ui/budget_data/DataScreen";
 import { useEffect, useState } from "react";
 import TimePeriod from "@/app/ui/budget_data/TimePeriod";
+import { Expense } from "@/lib/definitions";
 
 export const dynamic = 'force-dynamic';
 
 export default function Page() {
-    const [transactions, setTransactions] = useState([]);
-    const [expensesToShow, setExpensesToShow] = useState([]);
+    const [transactions, setTransactions] = useState<Expense[]>([]);
+    const [expensesToShow, setExpensesToShow] = useState<Expense[]>([]);
     const [selectedYear, setSelectedYear] = useState('');
-    const [years, setYears] = useState([]);
+    const [years, setYears] = useState<string[]>([]);
 
     useEffect(() => {
         async function fetchData() {
