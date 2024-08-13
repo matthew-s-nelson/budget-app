@@ -1,11 +1,13 @@
 'use server'
 
 import { signIn, registerUser } from '@/auth'
+import { redirect } from 'next/navigation';
 
 export async function authenticate(_currentState: unknown, formData: FormData) {
     try {
         await signIn('credentials', formData);
     } catch (error) {
+        console.log(error);
         if (error) {
             switch (error.type) {
                 case 'CredentialsSignIn':
@@ -18,6 +20,7 @@ export async function authenticate(_currentState: unknown, formData: FormData) {
         }
         throw error;
     }
+    redirect('/dashboard');
 }
 
 export async function register(_currentState: unknown, formData: FormData) {
