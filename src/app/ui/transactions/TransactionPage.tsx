@@ -56,6 +56,7 @@ export default function TransactionPage({ categories }) {
         try {
             await uploadExpenses(expenses);
             alert('Expenses have been submitted successfully!')
+            setExpenses([]);
         } catch (error) {
             console.error('An error occurred while submitting expenses:', error);
         }
