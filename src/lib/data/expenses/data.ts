@@ -29,7 +29,7 @@ export async function createExpense(data) {
         description: data.description,
         amount: data.amount,
         type: data.type,
-        date: new Date(data.date as string),
+        date: new Date(data.date as string + 'T00:00:00'),
     });
     
     try {
@@ -63,7 +63,7 @@ export async function deleteExpense(id: string, path: string) {
     try {
         const userId = await getUserId();
         if (!userId) throw new Error('No user id');
-        
+
         await sql`
             DELETE FROM expenses
             WHERE id = ${id}
