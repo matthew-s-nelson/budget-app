@@ -23,9 +23,9 @@ export default function DataScreen({ periodType, filteredTransactions, allTransa
 
     return (
         <div>
-            <table>
+            <table className="my-2">
                 <thead>
-                    <tr>
+                    <tr className="t-head-row">
                         <th>Income Total</th>
                         <th>Expenses Total</th>
                         <th>Net</th>

@@ -83,7 +83,7 @@ const AddTransaction = ({
             </div>
             <div className="mt-3">
                 <button
-                    className="btn btn-primary bg-blue-500 text-white py-2 px-4 rounded"
+                    className="btn btn-primary"
                     onClick={addExpense}
                 >
                     Add Transaction

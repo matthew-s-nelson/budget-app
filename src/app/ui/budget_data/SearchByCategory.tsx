@@ -69,7 +69,7 @@ export default function SearchByCategory({ expenses, selectedCategory, setSelect
                     )
                 }
             </select>
-            <table>
+            <table className="my-2">
                 <thead>
                     <tr>
                         <th>Description</th>
@@ -91,13 +91,13 @@ export default function SearchByCategory({ expenses, selectedCategory, setSelect
                 <tfoot>
                     <tr>
                         <td colSpan={selectedCategory == 'all' ? 3 : 2}><b>Total:</b></td>
-                        <td className={`${totalToShow <= 0 ? 'text-red-500' : 'text-green-500'}`}>${formatNumWithCommas(totalToShow)}</td>
+                        <td colSpan={2} className={`${totalToShow <= 0 ? 'text-red-500' : 'text-green-500'}`}>${formatNumWithCommas(totalToShow)}</td>
                     </tr>
                 </tfoot>
             </table>
-            <div>
-                <button className="btn bg-blue-500 text-white py-1 px-3 mx-1 rounded" onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
-                <button className="btn bg-blue-500 text-white py-1 px-3 mx-1 rounded" onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages}>Next</button>
+            <div className="my-1">
+                <button className="btn btn-primary" onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
+                <button className="btn btn-primary mx-2" onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages}>Next</button>
                 <span>Page {currentPage} of {totalPages}</span>
             </div>
         </div>

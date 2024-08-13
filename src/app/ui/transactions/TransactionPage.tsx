@@ -90,7 +90,7 @@ export default function TransactionPage({ categories }) {
           />
           <div className="text-center mt-6">
                 <button
-                    className="bg-blue-500 text-white py-2 px-4 rounded"
+                    className="btn btn-primary"
                     onClick={submitExpenses}
                 >
                     Submit Expenses
