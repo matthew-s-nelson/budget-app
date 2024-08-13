@@ -1,7 +1,8 @@
 'use client'
 
 import { authenticate } from "@/lib/actions"
-import { useFormState, useFormStatus } from "react-dom"
+import { useFormState } from "react-dom"
+import { FormSubmitButton } from "@/components/form-submit-button"
 
 export default function SignIn() {
     const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -13,24 +14,10 @@ export default function SignIn() {
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
                 <div>{errorMessage && <p>{errorMessage}</p>}</div>
-                <LoginButton />
+                <FormSubmitButton label={"Login"}  />
+                <div><a href="/signup">Don't have an account?</a></div>
             </form>
         </div>
     )
 }
 
-function LoginButton() {
-    const { pending } = useFormStatus();
-    
-    const handleClick = (event: any) => {
-        if (pending) {
-            event.preventDefault()
-        }
-    }
-
-    return (
-        <button aria-disabled={pending} type="submit" onClick={handleClick}>
-            Login
-        </button>
-    )
-}

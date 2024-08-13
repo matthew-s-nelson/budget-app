@@ -51,7 +51,7 @@ export default function Page() {
         return months;
     }
 
-    function changeMonth(event) {
+    function changeMonth(event: any) {
         setSelectedMonth(event.target.value);
     }
 

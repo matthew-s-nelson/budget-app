@@ -1,15 +1,57 @@
-import { getUserByEmail } from '@/lib/data/users/data'; // A hypothetical service to get user data
+import { getUserByEmail, createUser } from '@/lib/data/users/data'; // A hypothetical service to get user data
 import { comparePasswords } from '@/utils/auth/passwords'; // A utility to compare passwords (e.g., bcrypt)
 import { cookies } from 'next/headers';
 import { uuid } from 'uuidv4';
 import { NextRequest, NextResponse } from 'next/server';
 import { createSession, deleteSession } from './lib/data/session/data';
+import { create } from 'domain';
 
 const secretKey = 'secret'; // Make a env variable
 const key = new TextEncoder().encode(secretKey);
 
 export function generateSessionId() {
     return uuid();
+}
+
+export async function registerUser(provider: string, formData: FormData) {
+    if (provider !== 'credentials') {
+        throw new Error('Unsupported authentication provider');
+    }
+
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const password = formData.get('password');
+
+    if (!email || !name || !password) {
+        throw { type: 'CredentialsRegister', message: 'Missing credentials' };
+    }
+
+    try {
+        const user = await getUserByEmail(email);
+        if (user) {
+            throw { type: 'EmailAlreadyExists', message: 'Email is already registered'}
+        }
+
+        const userId = await createUser(name, email, password);
+
+        await createCookie(userId);
+
+        return {
+            success: true,
+            user: {
+                id: userId,
+                email: email,
+                name: name
+            }
+        };
+        
+    } catch (error) {
+        console.log(error);
+        if (error.type === 'CredentialsRegister') {
+            throw error;
+        }
+        throw new Error('Registration failed');
+    }
 }
 
 export async function signIn(provider: string, formData: FormData) {
@@ -36,14 +78,8 @@ export async function signIn(provider: string, formData: FormData) {
         if (!isPasswordValid) {
             throw { type: 'CredentialsSignIn', message: 'Invalid credentials' };
         }
-        console.log('here');
 
-        const expires = new Date(Date.now() + 60 * 60 * 24 * 7);
-        const sessionId = generateSessionId();
-        await createSession(sessionId, user.id);
-
-        cookies().set('session', sessionId, { expires, httpOnly: true });
-        console.log(cookies().get('session'));
+        await createCookie(user.id);
 
         return {
             success: true,
@@ -64,6 +100,15 @@ export async function signIn(provider: string, formData: FormData) {
     }
 }
 
+export async function createCookie(userId: string) {
+    const expires = new Date(Date.now() + 60 * 60 * 24 * 7);
+    const sessionId = generateSessionId();
+    await createSession(sessionId, userId);
+
+    cookies().set('session', sessionId, { expires, httpOnly: true });
+    console.log(cookies().get('session'));
+}
+
 export async function logout() {
     const sessionId = cookies().get('session')?.value;
     if (sessionId) {
@@ -79,14 +124,22 @@ export async function getSession() {
 }
 
 export async function updateSession(request: NextRequest) {
-    const session = request.cookies.get('session')?.value;
-    console.log(session);
-    // if (!session) return;
-    // session.expires = new Date(Date.now() + 60 * 60 * 24 * 7);
-    // return NextResponse.next().cookies.set({
-    //     name: 'session',
-    //     value: session,
-    //     httpOnly: true,
-    //     expires: parsed.expires,
-    // });
+    const sessionCookie = request.cookies.get('session')?.value;
+    
+    if (!sessionCookie) {
+        // No session found, no need to update
+        return NextResponse.next();
+    }
+
+    // Set new expiration date
+    const expires = new Date(Date.now() + 60 * 60 * 24 * 7); // 7 days from now
+
+    // Create a new cookie with updated expiration
+    const response = NextResponse.next();
+    response.cookies.set('session', sessionCookie, {
+        httpOnly: true,
+        expires,
+    });
+
+    return response;
 }
