@@ -3,7 +3,7 @@
 import { useState } from "react";
 import AddTransaction from "@/app/ui/transactions/AddTransaction";
 import TransactionList from "@/app/ui/transactions/TransactionList";
-import { uploadExpenses } from "@/app/lib/expenses/data";
+import { uploadExpenses } from "@/lib/data/expenses/data";
 
 export default function TransactionPage({ categories }) {
     const [expenses, setExpenses] = useState([]);
@@ -54,7 +54,8 @@ export default function TransactionPage({ categories }) {
             return;
         }
         try {
-            uploadExpenses(expenses);
+            await uploadExpenses(expenses);
+            alert('Expenses have been submitted successfully!')
         } catch (error) {
             console.error('An error occurred while submitting expenses:', error);
         }

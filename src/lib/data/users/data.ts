@@ -29,10 +29,10 @@ export async function createUser(name: string, email: string, password: string) 
         const hashedPassword = await hashPassword(password);
 
         await sql`INSERT INTO users (name, email, password)
-            VALUES (${name}, ${email}, ${password})`;
+            VALUES (${name}, ${email}, ${hashedPassword})`;
 
         const data = await sql`SELECT id FROM users WHERE email=${email};`
-        return data.rows[0].user_id;
+        return data.rows[0].id;
     } catch (error) {
         console.error('Database error:', error);
         throw new Error('Failed to create the user.');

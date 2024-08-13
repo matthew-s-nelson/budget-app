@@ -1,4 +1,4 @@
-import { deleteCategory } from "@/app/lib/categories/data";
+import { deleteCategory } from "@/lib/data/categories/data";
 
 export async function DeleteCategory({ id }: { id: string }) {
     const deleteCategoryWithId = deleteCategory.bind(null, id);

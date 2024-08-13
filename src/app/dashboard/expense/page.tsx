@@ -1,4 +1,4 @@
-import { fetchCategories } from "@/app/lib/categories/data";
+import { fetchCategories } from "@//lib/data/categories/data";
 import TransactionPage from "@/app/ui/transactions/TransactionPage";
 
 export const dynamic = 'force-dynamic';

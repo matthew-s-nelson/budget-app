@@ -1,5 +1,4 @@
-import { fetchCategories } from "@/app/lib/categories/data";
-import { createCategory, deleteCategory } from "@/app/lib/categories/data";
+import { fetchCategories, createCategory } from "@/lib/data/categories/data";
 import { DeleteCategory } from "@/app/ui/categories/DeleteCategory";
 
 export default async function Page() {

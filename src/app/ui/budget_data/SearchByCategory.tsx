@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
-import { fetchCategories } from "@/app/lib/categories/data";
-import { deleteExpense } from "@/app/lib/expenses/data";
+import { fetchCategories } from "@/lib/data/categories/data";
+import { deleteExpense } from "@/lib/data/expenses/data";
 import { dateToString, formatNumWithCommas } from "@/utils/formatting";
 import { sum } from "@/utils/calculations/calculations";
 import { usePathname } from 'next/navigation'

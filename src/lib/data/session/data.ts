@@ -47,3 +47,14 @@ export async function deleteSessionByUserId(userId: string) {
         throw new Error('Failed to delete the session');
     }
 }
+
+export async function getSessionUserId(sessionId: string) {
+    try {
+        const data = await sql`SELECT * FROM sessions WHERE id=${sessionId}`;
+        console.log('data', data);
+        return data.rows[0].user_id;
+    } catch (error) {
+        console.log('Database error:', error);
+        throw new Error('Failed to retrieve session');
+    }
+}

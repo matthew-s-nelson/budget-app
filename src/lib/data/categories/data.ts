@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { Category } from '../../definitions';
+import { getUserId } from '@/auth';
 
 const FormSchema = z.object({
     name: z.string(),
@@ -16,17 +17,28 @@ export async function createCategory(formData: FormData) {
         name: formData.get('name'),
     });
     
-    await sql`
-    INSERT INTO categories (name)
-    VALUES (${name})
-    `;
+    try {
+        const userId = await getUserId();
+        if (!userId) throw new Error('No user id');
+
+        await sql`
+        INSERT INTO categories (user_id, name)
+        VALUES (${userId}, ${name})
+        `;
+    } catch (error) {
+        console.error("Database error", error);
+        throw new Error('Failed to create category');
+    }
 
     revalidatePath('/dashboard/categories'); // Updates the page with the added category
 }
 
 export async function fetchCategories() {
     try {
-        const data = await sql<Category>`SELECT * FROM categories;`;
+        const userId = await getUserId();
+        if (!userId) throw new Error('No user id');
+
+        const data = await sql<Category>`SELECT * FROM categories WHERE user_id=${userId};`;
         return data.rows;
     } catch (error) {
         console.error('Database Error:', error);
@@ -35,10 +47,18 @@ export async function fetchCategories() {
 }
 
 export async function deleteCategory(id: string) {
-    await sql`
-    DELETE FROM categories
-    WHERE id = ${id}
-    `;
+    try {
+        const userId = await getUserId();
+        if (!userId) throw new Error('No user id');
+
+        await sql`
+        DELETE FROM categories
+        WHERE id = ${id}
+        `;
+    } catch (error) {
+        console.error('Database error', error);
+        throw new Error('Failed to delete cateogry');
+    }
 
     revalidatePath('/dashboard/expenses');
 }

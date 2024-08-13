@@ -51,6 +51,7 @@ async function seedWeeklyCosts(client) {
         const createTable = await client.sql`
         CREATE TABLE IF NOT EXISTS weekly_costs (
             id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+            user_id text,
             groceries INT NOT NULL,
             rent INT NOT NULL,
             gas INT NOT NULL,
@@ -82,6 +83,7 @@ async function seedExpenses(client) {
         const createTable = await client.query(`
             CREATE TABLE IF NOT EXISTS public.expenses (
                 id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                user_id text,
                 category_id VARCHAR(255) NOT NULL,
                 description VARCHAR(255) NOT NULL,
                 amount FLOAT NOT NULL,
@@ -108,6 +110,7 @@ async function seedCategories(client) {
         const createTable = await client.query(`
             CREATE TABLE IF NOT EXISTS public.categories (
                 id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                user_id text,
                 name VARCHAR(255) NOT NULL
             );
         `);

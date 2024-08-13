@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { Expense } from '../../definitions';
+import { getUserId } from '@/auth';
 
 const FormSchema = z.object({
     category_id: z.string(),
@@ -31,15 +32,26 @@ export async function createExpense(data) {
         date: new Date(data.date as string),
     });
     
-    await sql`
-    INSERT INTO expenses (category_id, description, amount, type, date)
-    VALUES (${category_id}, ${description}, ${amount}, ${type}, ${date})
-    `;
+    try {
+        const userId = await getUserId();
+        if (!userId) throw new Error('No user id');
+
+        await sql`
+        INSERT INTO expenses (user_id, category_id, description, amount, type, date)
+        VALUES (${userId}, ${category_id}, ${description}, ${amount}, ${type}, ${date})
+        `;
+    } catch (error) {
+        console.error('Database error', error);
+        throw new Error('Failed to create expense');
+    }
 }
 
 export async function fetchExpenses() {
     try {
-        const data = await sql<Expense>`SELECT * FROM expenses;`
+        const userId = await getUserId();
+        if (!userId) throw new Error('No user id');
+
+        const data = await sql<Expense>`SELECT * FROM expenses WHERE user_id=${userId};`
         return data.rows;
     } catch (error) {
         console.error('Database Error:', error);
@@ -48,20 +60,17 @@ export async function fetchExpenses() {
 }
 
 export async function deleteExpense(id: string, path: string) {
-    // console.log(id);
-    // console.log(path)
-    await sql`
-        DELETE FROM expenses
-        WHERE id = ${id}
-    `;
+    try {
+        const userId = await getUserId();
+        if (!userId) throw new Error('No user id');
+        
+        await sql`
+            DELETE FROM expenses
+            WHERE id = ${id}
+        `;
+    } catch (error) {
+        console.error('Database error:', error);
+        throw new Error('Failed to delete expense');
+    }
     revalidatePath(path);
 }
-
-// export async function deleteCategory(id: string) {
-//     await sql`
-//     DELETE FROM categories
-//     WHERE id = ${id}
-//     `;
-
-//     revalidatePath('/dashboard/expenses');
-// }

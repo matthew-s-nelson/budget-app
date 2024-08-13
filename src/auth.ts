@@ -3,8 +3,7 @@ import { comparePasswords } from '@/utils/auth/passwords'; // A utility to compa
 import { cookies } from 'next/headers';
 import { uuid } from 'uuidv4';
 import { NextRequest, NextResponse } from 'next/server';
-import { createSession, deleteSession } from './lib/data/session/data';
-import { create } from 'domain';
+import { createSession, deleteSession, getSessionUserId } from './lib/data/session/data';
 
 const secretKey = 'secret'; // Make a env variable
 const key = new TextEncoder().encode(secretKey);
@@ -120,7 +119,7 @@ export async function logout() {
 export async function getSession() {
     const session = cookies().get('session')?.value;
     if (!session) return null;
-    return await decrypt(session);
+    return session;
 }
 
 export async function updateSession(request: NextRequest) {
@@ -142,4 +141,14 @@ export async function updateSession(request: NextRequest) {
     });
 
     return response;
+}
+
+export async function getUserId() {
+    const session = await getSession();
+    console.log('session', session);
+    if (!session) throw new Error('Session does not exist');
+
+    const userId = await getSessionUserId(session);
+    console.log('user', userId);
+    return userId;
 }

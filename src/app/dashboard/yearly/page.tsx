@@ -1,6 +1,6 @@
 'use client'
 
-import { fetchExpenses } from "@/app/lib/expenses/data";
+import { fetchExpenses } from "@/lib/data/expenses/data";
 import DataScreen from "@/app/ui/budget_data/DataScreen";
 import { useEffect, useState } from "react";
 import TimePeriod from "@/app/ui/budget_data/TimePeriod";
