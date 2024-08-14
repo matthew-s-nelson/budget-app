@@ -98,3 +98,20 @@ input {
 select {
   @apply px-4 py-2 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
 }
+
+.card {
+  @apply items-center justify-center min-h-10 bg-gray-100;
+  @apply bg-white shadow-md rounded-lg p-8 max-w-sm w-full;
+
+  h1 {
+    @apply text-2xl font-bold mb-6 text-center text-gray-800
+  }
+}
+
+.form-group {
+  @apply mb-4;
+}
+
+label {
+  @apply block;
+}

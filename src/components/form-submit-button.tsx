@@ -16,7 +16,7 @@ export const FormSubmitButton = ({
     }
 
     return (
-        <button aria-disabled={pending} type="submit" onClick={handleClick}>
+        <button className="btn-primary" aria-disabled={pending} type="submit" onClick={handleClick}>
             {label}
         </button>
     )

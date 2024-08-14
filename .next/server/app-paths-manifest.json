@@ -1,5 +1,14 @@
 {
-  "/dashboard/expense/page": "app/dashboard/expense/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/auth/signup/page": "app/auth/signup/page.js",
+  "/auth/signin/page": "app/auth/signin/page.js",
   "/dashboard/categories/page": "app/dashboard/categories/page.js",
-  "/dashboard/weekly/page": "app/dashboard/weekly/page.js"
+  "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/login/page": "app/dashboard/login/page.js",
+  "/dashboard/weekly/page": "app/dashboard/weekly/page.js",
+  "/dashboard/yearly/page": "app/dashboard/yearly/page.js",
+  "/dashboard/expense/page": "app/dashboard/expense/page.js",
+  "/dashboard/monthly/page": "app/dashboard/monthly/page.js"
 }

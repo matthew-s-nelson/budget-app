@@ -13,12 +13,21 @@ export default function SignUp() {
     const [errorMessage, dispatch] = useFormState(register, undefined);
 
     return (
-        <div className="text-white">
+        <div className="card">
             <h1>Sign Up</h1>
             <form action={dispatch}>
-                <input type="text" name="name" placeholder="Name" required />
-                <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Password" required />
+                <div className="form-group">
+                    <label htmlFor="name">Name</label>
+                    <input className="w-full" type="text" name="name" placeholder="John Doe" required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input className="w-full" type="email" name="email" placeholder="example@email.com" required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input className="w-full" type="password" name="password" placeholder="******" required />
+                </div>
                 <FormSubmitButton label="Register" />
                 <div><a href="/signin">Already have an account?</a></div>
             </form>
