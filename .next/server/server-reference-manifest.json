@@ -1,1 +1,50 @@
-{"node":{"2dd31805a6fdd5588f7ae67045964b92543ec0c8":{"workers":{"app/dashboard/categories/page":"85649"},"layer":{"app/dashboard/categories/page":"rsc"}},"0aea96537470cca2bab4a34fedbc72490c9e4f43":{"workers":{"app/dashboard/categories/page":"85649","app/dashboard/expense/page":"9236","app/dashboard/weekly/page":"58811","app/dashboard/yearly/page":"58811","app/dashboard/monthly/page":"58811"},"layer":{"app/dashboard/categories/page":"rsc","app/dashboard/expense/page":"rsc","app/dashboard/weekly/page":"action-browser","app/dashboard/yearly/page":"action-browser","app/dashboard/monthly/page":"action-browser"}},"2378c4e16282f53352959e30b0a77c3ab0de3ecb":{"workers":{"app/dashboard/categories/page":"85649","app/dashboard/expense/page":"9236","app/dashboard/weekly/page":"58811","app/dashboard/yearly/page":"58811","app/dashboard/monthly/page":"58811"},"layer":{"app/dashboard/categories/page":"rsc","app/dashboard/expense/page":"rsc","app/dashboard/weekly/page":"action-browser","app/dashboard/yearly/page":"action-browser","app/dashboard/monthly/page":"action-browser"}},"f1c3cb588f973d32d2e91a8790b6755751cfa353":{"workers":{"app/dashboard/categories/page":"85649","app/dashboard/expense/page":"9236","app/dashboard/weekly/page":"58811","app/dashboard/yearly/page":"58811","app/dashboard/monthly/page":"58811"},"layer":{"app/dashboard/categories/page":"rsc","app/dashboard/expense/page":"rsc","app/dashboard/weekly/page":"action-browser","app/dashboard/yearly/page":"action-browser","app/dashboard/monthly/page":"action-browser"}},"55cb4de73edadf2feeb9b5ddfef39cb0df65d22e":{"workers":{"app/dashboard/categories/page":"85649","app/dashboard/page":"3602","app/dashboard/login/page":"3602","app/dashboard/weekly/page":"3602","app/dashboard/yearly/page":"3602","app/dashboard/expense/page":"9236","app/dashboard/monthly/page":"3602"},"layer":{"app/dashboard/categories/page":"rsc","app/dashboard/page":"rsc","app/dashboard/login/page":"rsc","app/dashboard/weekly/page":"rsc","app/dashboard/yearly/page":"rsc","app/dashboard/expense/page":"rsc","app/dashboard/monthly/page":"rsc"}},"feda6e6b00785aa7caa450e2444e07026cc9816a":{"workers":{"app/dashboard/categories/page":"85649","app/dashboard/page":"3602","app/dashboard/login/page":"3602","app/dashboard/weekly/page":"3602","app/dashboard/yearly/page":"3602","app/dashboard/expense/page":"9236","app/dashboard/monthly/page":"3602"},"layer":{"app/dashboard/categories/page":"rsc","app/dashboard/page":"rsc","app/dashboard/login/page":"rsc","app/dashboard/weekly/page":"rsc","app/dashboard/yearly/page":"rsc","app/dashboard/expense/page":"rsc","app/dashboard/monthly/page":"rsc"}},"58af18e9ae0ff70e83d3b8d350c8dea670b65222":{"workers":{"app/dashboard/categories/page":"85649","app/dashboard/page":"3602","app/dashboard/login/page":"3602","app/dashboard/weekly/page":"3602","app/dashboard/yearly/page":"3602","app/dashboard/expense/page":"9236","app/dashboard/monthly/page":"3602"},"layer":{"app/dashboard/categories/page":"rsc","app/dashboard/page":"rsc","app/dashboard/login/page":"rsc","app/dashboard/weekly/page":"rsc","app/dashboard/yearly/page":"rsc","app/dashboard/expense/page":"rsc","app/dashboard/monthly/page":"rsc"}},"2ca8ce73f78a4efe88acd5aff237421683933f00":{"workers":{"app/auth/signup/page":"22029","app/auth/signin/page":"22029"},"layer":{"app/auth/signup/page":"action-browser","app/auth/signin/page":"action-browser"}},"58df184074cd1f68bb2881e3fb7355fed96a6723":{"workers":{"app/auth/signup/page":"22029","app/auth/signin/page":"22029"},"layer":{"app/auth/signup/page":"action-browser","app/auth/signin/page":"action-browser"}},"092afa011cbeda95ecb33b94c93a38eaddad9413":{"workers":{"app/dashboard/weekly/page":"58811","app/dashboard/yearly/page":"58811","app/dashboard/expense/page":"4624","app/dashboard/monthly/page":"58811"},"layer":{"app/dashboard/weekly/page":"action-browser","app/dashboard/yearly/page":"action-browser","app/dashboard/expense/page":"action-browser","app/dashboard/monthly/page":"action-browser"}},"a26892c7537503c56370e9d5f193ecd842cc17a1":{"workers":{"app/dashboard/weekly/page":"58811","app/dashboard/yearly/page":"58811","app/dashboard/expense/page":"4624","app/dashboard/monthly/page":"58811"},"layer":{"app/dashboard/weekly/page":"action-browser","app/dashboard/yearly/page":"action-browser","app/dashboard/expense/page":"action-browser","app/dashboard/monthly/page":"action-browser"}},"bc75a10ddc21488f0854912ad6ebc90b3a970336":{"workers":{"app/dashboard/weekly/page":"58811","app/dashboard/yearly/page":"58811","app/dashboard/expense/page":"4624","app/dashboard/monthly/page":"58811"},"layer":{"app/dashboard/weekly/page":"action-browser","app/dashboard/yearly/page":"action-browser","app/dashboard/expense/page":"action-browser","app/dashboard/monthly/page":"action-browser"}},"e2c2088330a1d931a9c39faa23d5c103ddd085e2":{"workers":{"app/dashboard/weekly/page":"58811","app/dashboard/yearly/page":"58811","app/dashboard/expense/page":"4624","app/dashboard/monthly/page":"58811"},"layer":{"app/dashboard/weekly/page":"action-browser","app/dashboard/yearly/page":"action-browser","app/dashboard/expense/page":"action-browser","app/dashboard/monthly/page":"action-browser"}}},"edge":{},"encryptionKey":"HNWy1ZX6CWG3/OtmcoiWv31AxdBrgPgvSWKTVVlCahw="}
+{
+  "node": {
+    "2ca8ce73f78a4efe88acd5aff237421683933f00": {
+      "workers": {
+        "app/auth/signin/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Flib%2Factions.ts%22%2C%5B%22authenticate%22%2C%22register%22%5D%5D%5D&__client_imported__=true!",
+        "app/auth/signup/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Flib%2Factions.ts%22%2C%5B%22authenticate%22%2C%22register%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/auth/signin/page": "action-browser",
+        "app/auth/signup/page": "action-browser"
+      }
+    },
+    "58df184074cd1f68bb2881e3fb7355fed96a6723": {
+      "workers": {
+        "app/auth/signin/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Flib%2Factions.ts%22%2C%5B%22authenticate%22%2C%22register%22%5D%5D%5D&__client_imported__=true!",
+        "app/auth/signup/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Flib%2Factions.ts%22%2C%5B%22authenticate%22%2C%22register%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/auth/signin/page": "action-browser",
+        "app/auth/signup/page": "action-browser"
+      }
+    },
+    "58af18e9ae0ff70e83d3b8d350c8dea670b65222": {
+      "workers": {
+        "app/dashboard/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Fui%2Fdashboard%2Fsidenav.tsx%22%2C%5B%22%24%24ACTION_0%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Flib%2Fdata%2Fusers%2Fdata.ts%22%2C%5B%22createUser%22%2C%22getUserByEmail%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/dashboard/page": "rsc"
+      }
+    },
+    "55cb4de73edadf2feeb9b5ddfef39cb0df65d22e": {
+      "workers": {
+        "app/dashboard/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Fui%2Fdashboard%2Fsidenav.tsx%22%2C%5B%22%24%24ACTION_0%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Flib%2Fdata%2Fusers%2Fdata.ts%22%2C%5B%22createUser%22%2C%22getUserByEmail%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/dashboard/page": "rsc"
+      }
+    },
+    "feda6e6b00785aa7caa450e2444e07026cc9816a": {
+      "workers": {
+        "app/dashboard/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Fapp%2Fui%2Fdashboard%2Fsidenav.tsx%22%2C%5B%22%24%24ACTION_0%22%5D%5D%2C%5B%22%2FUsers%2Fmatthewnelson%2FProjects%2Fbudget-app%2Fsrc%2Flib%2Fdata%2Fusers%2Fdata.ts%22%2C%5B%22createUser%22%2C%22getUserByEmail%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/dashboard/page": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "vuziVSMti4104ZgLTq52zeJGTaJ9AVnCb1h1xIwt/so="
+}

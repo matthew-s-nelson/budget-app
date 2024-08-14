@@ -29,6 +29,7 @@ export async function register(_currentState: unknown, formData: FormData) {
         await registerUser('credentials', formData);
     } catch (error: any) {
         if (error) {
+            console.log(error);
             switch (error.type) {
                 case 'CredentialsRegister':
                     return 'Invalid Registration';
@@ -37,4 +38,5 @@ export async function register(_currentState: unknown, formData: FormData) {
             }
         }
     }
+    redirect('/dashboard');
 }
