@@ -51,7 +51,10 @@ export async function fetchExpenses() {
         const userId = await getUserId();
         if (!userId) throw new Error('No user id');
 
-        const data = await sql<Expense>`SELECT * FROM expenses WHERE user_id=${userId};`
+        const data = await sql<Expense>`
+            SELECT * FROM expenses 
+            WHERE user_id=${userId}
+            ORDER BY date DESC;`
         return data.rows;
     } catch (error) {
         console.error('Database Error:', error);
