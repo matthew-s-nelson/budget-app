@@ -7,7 +7,7 @@ import { sum } from "@/utils/calculations/calculations";
 import { usePathname } from 'next/navigation'
 import { Expense, Category } from "@/lib/definitions";
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 5;
 
 interface SearchByCategoryProps {
     expenses: Expense[],
