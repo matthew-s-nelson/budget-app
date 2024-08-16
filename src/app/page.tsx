@@ -8,7 +8,11 @@ export default function Home() {
       <div>
         <h1 className="text-4xl font-bold mb-4">Welcome to Budget MB!</h1>
         <p className="text-xl mb-8">Manage your budget efficiently and effectively</p>
-        <button className='btn-primary'>Login</button>
+        <div>
+          <a className='btn-primary' href='/auth/signin'>Login</a>
+          <span> or </span>
+          <a className='btn-primary' href='/auth/signup'>Register</a>
+        </div>
       </div>
     </main>
   );
