@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { updateSession } from './auth';
 
 export function middleware(request: NextRequest) {
-    if (request.nextUrl.pathname.startsWith("/_next")) {
+    if (request.nextUrl.pathname.startsWith("/_next") || request.nextUrl.pathname == '/') {
         return NextResponse.next();
     }
         
