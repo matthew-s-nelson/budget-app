@@ -33,6 +33,44 @@ export async function createCategory(formData: FormData) {
     revalidatePath('/dashboard/categories'); // Updates the page with the added category
 }
 
+export async function setBudget(formData: FormData) {
+    
+    let budget = formData.get('budget');
+    const id = formData.get('id') as string;
+    const type = formData.get('type');
+
+    if (budget === null || isNaN(Number(budget))) {
+        throw new Error('Invalid budget');
+    } else if (id === null) {
+        throw new Error('Invalid category id');
+    } else if (type === null) {
+        throw new Error('Invalid budget type');
+    }
+
+    if (type === "weekly") {
+        budget = (Number(budget) * 52).toString();
+    } else if (type === "monthly") {
+        budget = (Number(budget) * 12).toString();
+    } else if (type === "yearly") {
+        budget = budget.toString();
+    } else {
+        throw new Error('Invalid budget type');
+    }
+
+    try {
+        await sql`
+        UPDATE categories
+        SET annual_budget = ${budget}
+        WHERE id = ${id}
+        `;
+    } catch (error) {
+        console.error('Database error', error);
+        throw new Error('Failed to set budget');
+    }
+
+    revalidatePath('/dashboard/categories');
+}
+
 export async function fetchCategories() {
     try {
         const userId = await getUserId();

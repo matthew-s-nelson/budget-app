@@ -1,7 +1,7 @@
 import { deleteCategory } from "@/lib/data/categories/data";
 
 export const dynamic = 'force-dynamic';
-export const runtime = 'edge'; // solve everything 
+export const runtime = 'edge';
 
 export async function DeleteCategory({ id }: { id: string }) {
     const deleteCategoryWithId = deleteCategory.bind(null, id);
