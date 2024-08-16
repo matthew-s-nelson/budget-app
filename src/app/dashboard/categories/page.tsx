@@ -1,7 +1,7 @@
 'use server'
 
 import { fetchCategories, createCategory } from "@/lib/data/categories/data";
-import { DeleteCategory } from "@/app/ui/categories/DeleteCategory";
+import { DeleteCategory } from "@/components/ui/categories/DeleteCategory";
 
 export default async function Page() {
     const categories = await fetchCategories();

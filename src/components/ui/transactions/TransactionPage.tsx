@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import AddTransaction from "@/app/ui/transactions/AddTransaction";
-import TransactionList from "@/app/ui/transactions/TransactionList";
+import AddTransaction from "@/components/ui/transactions/AddTransaction";
+import TransactionList from "@/components/ui/transactions/TransactionList";
 import { uploadExpenses } from "@/lib/data/expenses/data";
 import { Category, Expense } from "@/lib/definitions";
 

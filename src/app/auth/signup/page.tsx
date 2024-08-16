@@ -2,7 +2,7 @@
 
 import { register } from "@/lib/actions";
 import { useFormState, useFormStatus } from "react-dom";
-import { ZodErrors } from "@/app/ui/errors/ZodErrors";
+import { ZodErrors } from "@/components/ui/errors/ZodErrors";
 import { FormSubmitButton } from "@/components/form-submit-button";
 
 const INITIAL_STATE = {

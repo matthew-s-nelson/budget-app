@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import NavLinks from '@/app/ui/dashboard/nav-links';
+import NavLinks from '@/components/ui/dashboard/nav-links';
 import { logout } from '@/auth';
 import { redirect } from 'next/navigation';
 // import AcmeLogo from '@/app/ui/acme-logo';

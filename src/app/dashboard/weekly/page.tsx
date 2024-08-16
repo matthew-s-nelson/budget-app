@@ -2,8 +2,8 @@
 
 import { fetchExpenses } from '@/lib/data/expenses/data';
 import { useState, useEffect } from 'react';
-import TimePeriod from '@/app/ui/budget_data/TimePeriod';
-import DataScreen from '@/app/ui/budget_data/DataScreen';
+import TimePeriod from '@/components/ui/budget_data/TimePeriod';
+import DataScreen from '@/components/ui/budget_data/DataScreen';
 import { Expense } from '@/lib/definitions';
 
 export default function Page() {

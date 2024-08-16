@@ -1,9 +1,9 @@
 'use client'
 
 import { fetchExpenses } from "@/lib/data/expenses/data";
-import DataScreen from "@/app/ui/budget_data/DataScreen";
+import DataScreen from "@/components/ui/budget_data/DataScreen";
 import { useEffect, useState } from "react";
-import TimePeriod from "@/app/ui/budget_data/TimePeriod";
+import TimePeriod from "@/components/ui/budget_data/TimePeriod";
 import { Expense } from "@/lib/definitions";
 
 export const dynamic = 'force-dynamic';
