@@ -7,7 +7,7 @@ export async function authenticate(_currentState: unknown, formData: FormData) {
     try {
         await signIn('credentials', formData);
     } catch (error: any) {
-        console.log(error);
+        console.error(error);
         if (error) {
             switch (error.type) {
                 case 'CredentialsSignIn':
@@ -25,11 +25,10 @@ export async function authenticate(_currentState: unknown, formData: FormData) {
 
 export async function register(_currentState: unknown, formData: FormData) {
     try {
-        // console.log(formData.get('name'));
         await registerUser('credentials', formData);
     } catch (error: any) {
         if (error) {
-            console.log(error);
+            console.error(error);
             switch (error.type) {
                 case 'CredentialsRegister':
                     return 'Invalid Registration';

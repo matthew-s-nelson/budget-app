@@ -14,13 +14,12 @@ const CreateSession = FormSchema;
 
 export async function createSession(sessionId: string, userId: string) {
     try {
-        console.log('first');
         await deleteSessionByUserId(userId)
         const createdAt = new Date().toISOString();
-        console.log('before');
+
         await sql`INSERT INTO sessions (id, user_id, created_at)
         VALUES (${sessionId}, ${userId}, ${createdAt})`;
-        console.log('made it');
+
         return true;
     } catch (error) {
         console.error('Database error:', error);
@@ -43,7 +42,7 @@ export async function deleteSessionByUserId(userId: string) {
         await sql`DELETE FROM sessions WHERE user_id=${userId}`;
         return true
     } catch (error) {
-        console.log('Databse error:', error);
+        console.error('Databse error:', error);
         throw new Error('Failed to delete the session');
     }
 }
@@ -51,10 +50,10 @@ export async function deleteSessionByUserId(userId: string) {
 export async function getSessionUserId(sessionId: string) {
     try {
         const data = await sql`SELECT * FROM sessions WHERE id=${sessionId}`;
-        console.log('data', data);
+        console.error('data', data);
         return data.rows[0].user_id;
     } catch (error) {
-        console.log('Database error:', error);
+        console.error('Database error:', error);
         throw new Error('Failed to retrieve session');
     }
 }

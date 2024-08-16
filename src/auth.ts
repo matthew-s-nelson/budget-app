@@ -45,7 +45,7 @@ export async function registerUser(provider: string, formData: FormData) {
         };
         
     } catch (error: any) {
-        console.log(error);
+        console.error(error);
         if (error.type === 'CredentialsRegister') {
             throw error;
         }
@@ -91,7 +91,7 @@ export async function signIn(provider: string, formData: FormData) {
 
     } catch (error: any) {
         // Handle any unexpected errors
-        console.log(error);
+        console.error(error);
         if (error.type === 'CredentialsSignIn') {
             throw error;
         }
@@ -105,7 +105,6 @@ export async function createCookie(userId: string) {
     await createSession(sessionId, userId);
 
     cookies().set('session', sessionId, { expires, httpOnly: true });
-    console.log(cookies().get('session'));
 }
 
 export async function logout() {
@@ -145,10 +144,8 @@ export async function updateSession(request: NextRequest) {
 
 export async function getUserId() {
     const session = await getSession();
-    console.log('session', session);
     if (!session) throw new Error('Session does not exist');
 
     const userId = await getSessionUserId(session);
-    console.log('user', userId);
     return userId;
 }

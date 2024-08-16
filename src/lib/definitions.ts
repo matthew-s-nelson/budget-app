@@ -1,6 +1,7 @@
 export type Category = {
     id: string;
     name: string;
+    annual_budget: number;
 };
 
 export type Expense = {
