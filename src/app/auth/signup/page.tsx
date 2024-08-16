@@ -29,7 +29,7 @@ export default function SignUp() {
                     <input className="w-full" type="password" name="password" placeholder="******" required />
                 </div>
                 <FormSubmitButton label="Register" />
-                <div><a href="/signin">Already have an account?</a></div>
+                <div className="my-2">Already have an account? <a href="/signin" className="underline hover:text-blue-500">Click here</a></div>
             </form>
         </div>
     );

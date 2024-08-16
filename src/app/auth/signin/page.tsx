@@ -22,7 +22,7 @@ export default function SignIn() {
                 </div>
                 <div>{errorMessage && <p>{errorMessage}</p>}</div>
                 <FormSubmitButton label={"Login"}  />
-                <a href="/auth/signup/">Don't have an account?</a>
+                <div className="my-2">Don't have an account? <a href="/auth/signup/" className="underline hover:text-blue-500">Click here</a></div>
             </form>
         </div>
     )
