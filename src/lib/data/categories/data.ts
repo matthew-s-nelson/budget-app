@@ -34,7 +34,9 @@ export async function createCategory(formData: FormData) {
 }
 
 export async function setBudget(formData: FormData) {
-    
+    const userId = await getUserId();
+    if (!userId) throw new Error('No user id');
+
     let budget = formData.get('budget');
     const id = formData.get('id') as string;
     const type = formData.get('type');
@@ -61,7 +63,7 @@ export async function setBudget(formData: FormData) {
         await sql`
         UPDATE categories
         SET annual_budget = ${budget}
-        WHERE id = ${id}
+        WHERE id = ${id} AND user_id = ${userId}
         `;
     } catch (error) {
         console.error('Database error', error);

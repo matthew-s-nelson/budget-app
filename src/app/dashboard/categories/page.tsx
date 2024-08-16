@@ -5,6 +5,7 @@ import { DeleteCategory } from "@/components/ui/categories/DeleteCategory";
 
 export default async function Page() {
     const categories = await fetchCategories();
+
     return (
         <div>
             <h1>Categories</h1>
@@ -19,11 +20,11 @@ export default async function Page() {
                         <span>{category.name}</span>
                         <form action={setBudget}>
                             <input name="id" type="hidden" value={category.id} />
-                            <input type="number" name="budget" className="input-text" placeholder="Enter the budget" required />
+                            <input type="number" name="budget" className="input-text" placeholder="Enter the budget" value={category.annual_budget} required />
                             <select name="type" className="input-text" required>
-                                <option value="weekly">Weekly</option>
-                                <option value="monthly">monthly</option>
                                 <option value="yearly">Yearly</option>
+                                <option value="monthly">monthly</option>
+                                <option value="weekly">Weekly</option>
                             </select>
                             <button type="submit" className="btn-primary">Set Budget</button>
                         </form>
