@@ -100,7 +100,7 @@ export async function signIn(provider: string, formData: FormData) {
 }
 
 export async function createCookie(userId: string) {
-    const expires = new Date(Date.now() + 60 * 60 * 24 * 7);
+    const expires = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7);
     const sessionId = generateSessionId();
     await createSession(sessionId, userId);
 
