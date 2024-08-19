@@ -2,6 +2,7 @@
 
 import { fetchCategories, createCategory, setBudget } from "@/lib/data/categories/data";
 import { DeleteCategory } from "@/components/ui/categories/DeleteCategory";
+import { CategoryBudgetForm } from "@/components/ui/categories/CategoryBudgetForm";
 
 export default async function Page() {
     const categories = await fetchCategories();
@@ -30,16 +31,7 @@ export default async function Page() {
                     <tr key={category.id}>
                         <td>{category.name}</td>
                         <td colSpan={3}>
-                            <form action={setBudget}>
-                                <input name="id" type="hidden" value={category.id} />
-                                <input type="number" name="budget" className="input-text mx-2" placeholder="Enter the budget" value={category.annual_budget} required />
-                                <select name="type" className="input-text mx-2" required>
-                                    <option value="yearly">Yearly</option>
-                                    <option value="monthly">monthly</option>
-                                    <option value="weekly">Weekly</option>
-                                </select>
-                                <button type="submit" className="btn-primary w-32 mx-2">Set Budget</button>
-                            </form>
+                            <CategoryBudgetForm category={category} />
                         </td>
                         <td>
                             <DeleteCategory id={category.id} />
