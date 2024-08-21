@@ -104,7 +104,12 @@ export async function createCookie(userId: string) {
     const sessionId = generateSessionId();
     await createSession(sessionId, userId);
 
-    cookies().set('session', sessionId, { expires, httpOnly: true });
+    cookies().set('session', sessionId, { 
+        expires,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict'
+    });
 }
 
 export async function logout() {
