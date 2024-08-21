@@ -95,6 +95,11 @@ const ExpensesChart: React.FC<ExpensesChartProps> = ({ expenses, periodType, bud
     }, [expenses, budget, periodType]);
 
     const options: ChartOptions<'bar'> = {
+        scales: {
+            y: {
+                beginAtZero: true,
+            }
+        },
         plugins: {
             annotation: {
                 annotations: {
