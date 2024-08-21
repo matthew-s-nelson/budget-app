@@ -5,7 +5,7 @@ import { deleteCategory } from "@/lib/data/categories/data";
 export const dynamic = 'force-dynamic';
 export const runtime = 'edge';
 
-export async function DeleteCategory({ id }: { id: string }) {
+export function DeleteCategory({ id }: { id: string }) {
     const deleteCategoryWithId = deleteCategory.bind(null, id);
 
     const handleDelete = async (event: React.FormEvent) => {

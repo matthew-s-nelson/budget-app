@@ -102,3 +102,31 @@ export async function deleteCategory(id: string) {
 
     revalidatePath('/dashboard/expenses');
 }
+
+export async function getBudgetByCategory(id: string) {
+    try {
+        const userId = await getUserId();
+        if (!userId) throw new Error('No user id');
+
+        const data = await sql<Category>`SELECT annual_budget FROM categories WHERE id=${id} AND user_id=${userId};`;
+        console.log(data.rows[0].annual_budget);
+        return data.rows[0].annual_budget;
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch the category.');
+    }
+}
+
+export async function getTotalBudget() {
+    try {
+        const userId = await getUserId();
+        if (!userId) throw new Error('No user id');
+
+        const data = await sql<Number>`SELECT SUM(annual_budget) FROM categories WHERE user_id=${userId};`;
+        console.log(data.rows[0]);
+        return data.rows[0];
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch the total budget.');
+    }
+}

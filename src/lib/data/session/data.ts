@@ -50,7 +50,6 @@ export async function deleteSessionByUserId(userId: string) {
 export async function getSessionUserId(sessionId: string) {
     try {
         const data = await sql`SELECT * FROM sessions WHERE id=${sessionId}`;
-        console.error('data', data);
         return data.rows[0].user_id;
     } catch (error) {
         console.error('Database error:', error);

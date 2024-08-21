@@ -2,22 +2,25 @@
 
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { ChartOptions, Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Expense } from '@/lib/definitions';
+import annotationPlugin from 'chartjs-plugin-annotation';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, annotationPlugin);
 
 interface ExpensesChartProps {
     expenses: Expense[],
-    periodType: string
+    periodType: string,
+    budget: number
 }
 
 interface ExpensePeriods {
     [key: string]: any;
 }
 
-const ExpensesChart: React.FC<ExpensesChartProps> = ({ expenses, periodType }) => {
+const ExpensesChart: React.FC<ExpensesChartProps> = ({ expenses, periodType, budget }) => {
     const [expenseData, setExpenseData] = useState<any>({ labels: [], datasets: [] });
+
 
     useEffect(() => {
         const groupByPeriod = (expenses: Expense[]) => {
@@ -89,11 +92,31 @@ const ExpensesChart: React.FC<ExpensesChartProps> = ({ expenses, periodType }) =
         };
 
         processExpenses();
-    }, [expenses]);
+    }, [expenses, budget, periodType]);
+
+    const options: ChartOptions<'bar'> = {
+        plugins: {
+            annotation: {
+                annotations: {
+                    budget: {
+                        type: 'line',
+                        scaleID: 'y',
+                        value: budget,
+                        borderColor: 'rgb(75, 192, 192)',
+                        borderWidth: 2,
+                        label: {
+                            content: 'Budget',
+                            position: 'end',
+                        }
+                    }
+                }
+            }
+        }
+    };
 
     return (
         <div>
-            <Bar data={expenseData} />
+            <Bar data={expenseData} options={options} />
         </div>
     );
 };
