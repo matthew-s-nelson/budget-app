@@ -109,7 +109,6 @@ export async function getBudgetByCategory(id: string) {
         if (!userId) throw new Error('No user id');
 
         const data = await sql<Category>`SELECT annual_budget FROM categories WHERE id=${id} AND user_id=${userId};`;
-        console.log(data.rows[0].annual_budget);
         return data.rows[0].annual_budget;
     } catch (error) {
         console.error('Database Error:', error);
@@ -122,9 +121,9 @@ export async function getTotalBudget() {
         const userId = await getUserId();
         if (!userId) throw new Error('No user id');
 
-        const data = await sql<Number>`SELECT SUM(annual_budget) FROM categories WHERE user_id=${userId};`;
-        console.log(data.rows[0]);
-        return data.rows[0];
+        const data = await sql<any>`SELECT SUM(annual_budget) FROM categories WHERE user_id=${userId};`;
+        console.log(data.rows[0].sum);
+        return data.rows[0].sum;
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch the total budget.');
