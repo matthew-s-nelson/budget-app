@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { updateSession } from './auth';
 
 export function middleware(request: NextRequest) {
     if (request.nextUrl.pathname.startsWith("/_next") || request.nextUrl.pathname == '/') {
@@ -19,8 +18,3 @@ export function middleware(request: NextRequest) {
     }
     return NextResponse.next();
 }
-
-// Adjust the matcher to suit your needs
-// export const config = {
-//     matcher: [''],
-// };
