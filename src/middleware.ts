@@ -4,9 +4,7 @@ export function middleware(request: NextRequest) {
     if (request.nextUrl.pathname.startsWith("/_next") || request.nextUrl.pathname == '/') {
         return NextResponse.next();
     }
-        
-    // return NextResponse.next();
-    // updateSession(request);
+
     const currentUser = request.cookies.get('session')?.value;
 
     if (currentUser != null && !request.nextUrl.pathname.startsWith('/dashboard')) {

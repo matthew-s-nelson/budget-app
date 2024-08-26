@@ -5,6 +5,8 @@ import { Bar } from 'react-chartjs-2';
 import { ChartOptions, Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Expense } from '@/lib/definitions';
 import annotationPlugin from 'chartjs-plugin-annotation';
+import { findAverage } from '@/utils/calculations/calculations';
+import { formatNumWithCommas } from '@/utils/formatting';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, annotationPlugin);
 
@@ -20,6 +22,7 @@ interface ExpensePeriods {
 
 const ExpensesChart: React.FC<ExpensesChartProps> = ({ expenses, periodType, budget }) => {
     const [expenseData, setExpenseData] = useState<any>({ labels: [], datasets: [] });
+    const [average, setAverage] = useState<number>(0);
 
 
     useEffect(() => {
@@ -66,6 +69,7 @@ const ExpensesChart: React.FC<ExpensesChartProps> = ({ expenses, periodType, bud
         const processExpenses = async () => {
             try {
                 const { labels, expenseData, incomeData } = groupByPeriod(expenses);
+                setAverage(findAverage(expenseData, labels));
 
                 setExpenseData({
                     labels,
@@ -107,21 +111,34 @@ const ExpensesChart: React.FC<ExpensesChartProps> = ({ expenses, periodType, bud
                         type: 'line',
                         scaleID: 'y',
                         value: budget,
-                        borderColor: 'rgb(75, 192, 192)',
+                        borderColor: 'rgb(249 115 22)',
                         borderWidth: 2,
                         label: {
                             content: 'Budget',
+                            position: 'end'
+                        }
+                    },
+                    average: {
+                        type: 'line',
+                        scaleID: 'y',
+                        value: typeof average === 'number' ? average : 0,
+                        borderColor: 'rgb(96 165 250)',
+                        borderWidth: 2,
+                        label: {
+                            content: 'Average',
                             position: 'end',
                         }
                     }
                 }
-            }
-        }
+            },
+        },
     };
 
     return (
         <div>
             <Bar data={expenseData} options={options} />
+            <p className="text-blue-400">Average: ${formatNumWithCommas(average)}</p>
+            <p className="text-orange-500">Budget: ${formatNumWithCommas(budget)}</p>
         </div>
     );
 };

@@ -21,3 +21,11 @@ export function sumIncome(expenseRows) {
 export function sumExpenses(expenseRows) {
     return sum(expenseRows, 'expense');
 }
+
+export function findAverage(expenseRows, periods) {
+    let sum = 0;
+    expenseRows.forEach(row => {
+        sum += row;
+    });
+    return sum / periods.length;
+}
