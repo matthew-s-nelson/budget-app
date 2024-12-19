@@ -1,4 +1,4 @@
-import { createCategory, deleteCategory, fetchCategories } from "@/lib/data/categories/data";
+import { createCategory, fetchCategories } from "@/lib/data/categories/data";
 import { Category } from "@/lib/model/domain/Category";
 import { z } from "zod";
 
