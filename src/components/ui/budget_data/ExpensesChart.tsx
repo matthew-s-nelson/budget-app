@@ -3,10 +3,10 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { ChartOptions, Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import { Expense } from '@/lib/definitions';
 import annotationPlugin from 'chartjs-plugin-annotation';
 import { findAverage } from '@/utils/calculations/calculations';
 import { formatNumWithCommas } from '@/utils/formatting';
+import { Expense } from '@/lib/model/domain/Expense';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, annotationPlugin);
 

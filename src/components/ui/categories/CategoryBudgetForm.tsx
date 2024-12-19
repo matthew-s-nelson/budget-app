@@ -1,5 +1,5 @@
 import { setBudget } from "@/lib/data/categories/data"
-import { Category } from "@/lib/definitions"
+import { Category } from "@/lib/model/domain/Category"
 
 export function CategoryBudgetForm({ category }: { category: Category }) {
 

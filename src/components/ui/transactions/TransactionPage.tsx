@@ -4,7 +4,7 @@ import { useState } from "react";
 import AddTransaction from "@/components/ui/transactions/AddTransaction";
 import TransactionList from "@/components/ui/transactions/TransactionList";
 import { uploadExpenses } from "@/lib/data/expenses/data";
-import { Category, Expense } from "@/lib/definitions";
+import { Category } from "@/lib/model/domain/Category";
 
 interface TransactionPageProps {
   categories: Category[]

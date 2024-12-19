@@ -4,7 +4,7 @@ import { fetchExpenses } from '@/lib/data/expenses/data';
 import { useState, useEffect } from 'react';
 import TimePeriod from '@/components/ui/budget_data/TimePeriod';
 import DataScreen from '@/components/ui/budget_data/DataScreen';
-import { Expense } from '@/lib/definitions';
+import { Expense } from '@/lib/model/domain/Expense';
 
 export default function Page() {
     const [transactions, setTransactions] = useState<Expense[]>([]);

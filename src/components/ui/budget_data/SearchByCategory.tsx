@@ -5,12 +5,14 @@ import { deleteExpense } from "@/lib/data/expenses/data";
 import { dateToString, formatNumWithCommas } from "@/utils/formatting";
 import { sum } from "@/utils/calculations/calculations";
 import { usePathname } from 'next/navigation'
-import { Expense, Category } from "@/lib/definitions";
+import { Category } from "@/lib/model/domain/Category";
+import { Expense } from "@/lib/model/domain/Expense";
 
 const ITEMS_PER_PAGE = 5;
 
 interface SearchByCategoryProps {
     expenses: Expense[],
+    // TODO: make it so that it can only be a category.
     selectedCategory: Category | string,
     setSelectedCategory: any
 }

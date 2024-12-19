@@ -4,8 +4,8 @@ import React, {useEffect, useState } from "react";
 import { formatNumWithCommas } from "@/utils/formatting";
 import SearchByCategory from "./SearchByCategory";
 import ExpensesChart from "./ExpensesChart";
-import { Expense } from "@/lib/definitions";
 import { getTotalBudget, getBudgetByCategory } from "@/lib/data/categories/data";
+import { Expense } from "@/lib/model/domain/Expense";
 
 interface DataScreenProps {
     periodType: string,

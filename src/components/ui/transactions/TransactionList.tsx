@@ -1,5 +1,5 @@
 import React from 'react';
-import { Category } from '@/lib/definitions';
+import { Category } from '@/lib/model/domain/Category';
 
 interface TransactionListProps {
     expenses: any,

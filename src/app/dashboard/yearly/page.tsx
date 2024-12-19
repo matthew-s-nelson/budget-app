@@ -4,7 +4,7 @@ import { fetchExpenses } from "@/lib/data/expenses/data";
 import DataScreen from "@/components/ui/budget_data/DataScreen";
 import { useEffect, useState } from "react";
 import TimePeriod from "@/components/ui/budget_data/TimePeriod";
-import { Expense } from "@/lib/definitions";
+import { Expense } from "@/lib/model/domain/Expense";
 
 export const dynamic = 'force-dynamic';
 

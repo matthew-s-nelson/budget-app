@@ -3,8 +3,8 @@
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
-import { Expense } from '../../definitions';
 import { getUserId } from '@/auth';
+import { Expense } from '@/lib/model/domain/Expense';
 
 const FormSchema = z.object({
     category_id: z.string(),
