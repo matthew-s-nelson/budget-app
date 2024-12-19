@@ -1,8 +1,5 @@
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
-import { revalidatePath } from 'next/cache';
-import { User } from '../../definitions';
-import { Car } from 'lucide-react';
 
 const FormSchema = z.object({
     id: z.string(),

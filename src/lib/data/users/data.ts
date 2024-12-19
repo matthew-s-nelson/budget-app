@@ -2,9 +2,8 @@
 
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
-import { revalidatePath } from 'next/cache';
 import { hashPassword } from '@/utils/auth/passwords';
-import { User } from '../../definitions';
+import { User } from '@/lib/model/domain/User';
 
 const FormSchema = z.object({
     name: z.string(),
