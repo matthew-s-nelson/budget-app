@@ -6,17 +6,7 @@ import { revalidatePath } from 'next/cache';
 import { Category } from '@/lib/model/domain/Category';
 import { getUserId } from '@/auth';
 
-const FormSchema = z.object({
-    name: z.string(),
-})
-
-const CreateCategory = FormSchema;
-
-export async function createCategory(formData: FormData) {
-    const { name } = CreateCategory.parse({
-        name: formData.get('name'),
-    });
-    
+export async function createCategory(name: string) {
     try {
         const userId = await getUserId();
         if (!userId) throw new Error('No user id');

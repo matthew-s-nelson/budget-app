@@ -1,17 +1,23 @@
-'use server'
+'use client'
 
-import { fetchCategories, createCategory, setBudget } from "@/lib/data/categories/data";
 import { DeleteCategory } from "@/components/ui/categories/DeleteCategory";
 import { CategoryBudgetForm } from "@/components/ui/categories/CategoryBudgetForm";
+import { CategoriesPresenter } from "@/app/presenters/CategoriesPresenter";
+import { useState } from "react";
 
 export default async function Page() {
-    const categories = await fetchCategories();
+    const [presenter] = useState(new CategoriesPresenter());
+    const categories = await presenter.getCategories();
+
+    const createNewCategory = async (formData: FormData) => {
+        presenter.createCategory(formData);
+    }
 
     return (
         <div>
             <h1>Categories</h1>
             <br></br>
-            <form className="my-2" action={createCategory}>
+            <form className="my-2" action={createNewCategory}>
                 <input type="text" name="name" className="input-text" placeholder="Enter the new category's name" />
                 <button type="submit" className="btn-primary">Create</button>
             </form>
