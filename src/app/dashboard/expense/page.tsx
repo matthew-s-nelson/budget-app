@@ -1,10 +1,14 @@
-import { fetchCategories } from "@//lib/data/categories/data";
+'use client'
+
+import { CategoriesPresenter } from "@/app/presenters/CategoriesPresenter";
 import TransactionPage from "@/components/ui/transactions/TransactionPage";
+import { useState } from "react";
 
 export const dynamic = 'force-dynamic';
 
 export default async function Page() {
-  const categories = await fetchCategories();
+  const [presenter] = useState(new CategoriesPresenter());
+  const categories = await presenter.getCategories();
   return(
     <TransactionPage categories={categories} />
   );
